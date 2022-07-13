@@ -1,0 +1,158 @@
+/////////////////////////////
+//buttons
+.btn {
+	padding: 5px 10px;
+	background-color: $primary-color;
+	color: $light-color;
+	border: 1px solid transparent;
+	font-size: $body-font-size;
+	font-weight: inherit;
+	text-align: inherit;
+	@include transition(0.3s);
+	&:active,
+	&:focus {
+		border-width: 1px;
+		@include shadow(none)
+	}
+	&:disabled,&.disabled
+	&--hover-none{
+		pointer-events: none;
+	}
+}
+//size
+.btn--sm {
+	@extend .text_sm;
+}
+.btn--md {
+	padding: 10px 20px;
+	@extend .text_md;
+}
+.btn--lg {
+	padding: 10px 20px;
+	@extend .text_lg;
+}
+.btn--xl {
+	padding: 15px 30px;
+	@extend .text_lg;
+}
+//full
+.btn--block {
+	text-align: center;
+	display: block;
+    width: 100%;
+}
+//rounded
+.btn--oval {
+	@include corner(10rem);
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.btn--circle {
+	position: relative;
+	@include corner(100%);
+	width: 50px;
+	height: 50px;
+	&:hover{
+		color: $light-color;
+	}
+}
+.btn--circle-sm {
+	@extend .btn--circle;
+	width: 30px;
+	height: 30px;
+	@extend .text_default;
+}
+.btn--circle-xs {
+	@extend .btn--circle;
+	width: 22px;
+	height: 22px;
+	@extend .text_sm;
+}
+.btn--circle-xxs {
+	@extend .btn--circle;
+	width: 20px;
+	height: 20px;
+	@extend .text_sm;
+}
+.btn--circle__icon {
+	@include position(absolute, 0, 0, 0, 0);
+	height: 20px;
+	width: 20px;
+	margin: auto;
+	line-height: 20px !important;
+	text-align: center;
+	@extend .text_md;
+
+	&.fa, &.fas{
+		font-size: inherit;
+	}
+}
+.btn--circle__icon-xxs {
+	@extend .btn--circle__icon;
+	height: 18px;
+	width: 18px;
+	line-height: 18px !important;
+}
+
+/////////////////////////////
+//colors
+//outline
+.btn--outline,
+%btn--outline{
+	background-color: transparent;
+	&:hover{
+		color: $light-color;
+		border-color: transparent;
+	}
+}
+.btn--outline {
+	@extend %btn--outline;
+	border-color: $primary-color;
+	color: $primary-color;
+	&:hover {
+		background-color: $primary-color;
+	}
+}
+
+//link
+%btn--link {
+	background-color: transparent;
+	padding: 0;
+	display: inline-flex;
+	align-items: center;
+}
+.btn--link {
+	@extend %btn--link;
+	color: $primary-color;
+}
+
+//format color
+@each $colorClass, $value in $buttons-palette {
+	.btn--#{$colorClass} {
+		background-color: map-get($value, 'bg');
+		&, &:hover {
+			color: $light-color;
+		}
+		&:hover {
+			background-color: map-get($value, 'hover');
+		}
+	}
+	.btn--outline-#{$colorClass} {
+		@extend %btn--outline;
+		border-color: map-get($value, 'bg');
+		&{
+			color: map-get($value, 'bg');
+		}
+		&:hover {
+			background-color: map-get($value, 'hover');
+		}
+	}
+	.btn--link-#{$colorClass} {
+		@extend %btn--link;
+		color: map-get($value, 'bg');
+		&.show,
+		&:hover {
+			color: map-get($value, 'hover');
+		}
+	}
+}

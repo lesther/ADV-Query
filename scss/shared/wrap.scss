@@ -1,0 +1,69 @@
+/////////////////////////////
+//wrapper
+.container--align-center {
+	margin-left: auto;
+	margin-right: auto;
+	@include md {
+		max-width: $max-width-container-page;
+	}
+}
+
+/////////////////////////////
+//container-size
+$sizes: "", "--sm", "--md", "--lg", "--xl";
+@mixin container-atr($size: "") {
+  .container_align-left#{$size} {
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  .container_align-right#{$size} {
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  .container_align-center#{$size} {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  //size
+  .container_xs#{$size} {
+    max-width: 250px;
+  }
+
+  .container_sm#{$size} {
+    max-width: 360px;
+  }
+
+  .container_md#{$size} {
+    max-width: 420px;
+  }
+
+  .container_wide#{$size} {
+    max-width: 500px;
+  }
+
+  .container_lg#{$size} {
+    max-width: 640px;
+  }
+
+  .container_xl#{$size} {
+    max-width: 1000px;
+  }
+}
+
+// Generate
+@include container-atr();
+@include sm {
+	@include container-atr("--sm");
+}
+@include md {
+	@include container-atr("--md");
+}
+@include lg {
+	@include container-atr("--lg");
+}
+@include xl {
+	@include container-atr("--xl");
+}

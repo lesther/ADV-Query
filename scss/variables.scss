@@ -1,0 +1,64 @@
+//////////////////////////////
+// COLORS
+$background-body: #fff;
+$light-color: #fff;
+//fonts
+$dark-color: #1f1d1d;
+$dark-color--accent: #111010;
+$gray-color: #c2a0a0;
+$gray-color--accent: #4c4545;
+//background
+$lighter-color: #f4f4f4;
+//default
+$danger-color: #e60040;
+$danger-color--accent: #ff195b;
+$warning-color: #ffd900;
+$warning-color--accent: #ffc400;
+$success-color: #59bb00;
+$success-color--accent: #8dd14f;
+$success-dark-color: #20a500;
+$leading-color: #0054dc;
+$primary-color: #00c2ff;
+$primary-color--accent: #007aff;
+$secondary-color: #F89301;
+$secondary-color--accent: #fe6154;
+//forms
+$disabled-color: #bdbdbd;
+$gray-border-color: #cccccc;
+$split-color: rgba(0, 0, 0, 0.1);
+
+//////////////////////////////
+// panel
+$spacing-menu-sm: 100px;
+$spacing-menu-default: 300px;
+
+//////////////////////////////
+// colors
+$colorClass-palette: (
+	"light": $light-color,
+	"dark": $dark-color,
+	"gray": $gray-color,
+	"leading": $leading-color,
+	"primary": $primary-color,
+	"primary-accent": $primary-color--accent,
+	"secondary": $secondary-color,
+	"secondary-accent": $secondary-color--accent,
+	"success": $success-color,
+	"danger": $danger-color,
+	"disabled": $disabled-color,
+	"warning": $warning-color,
+	"lighter": $lighter-color
+) !default;
+
+$buttons-palette: (
+  "light": ( bg: $light-color, hover: $primary-color ),
+  "dark": ( bg: $dark-color, hover: $dark-color--accent ),
+  "gray": ( bg: $gray-color, hover: $gray-color--accent ),
+  "leading": ( bg: $leading-color, hover: $primary-color--accent ),
+  "primary": ( bg: $primary-color, hover: $primary-color--accent ),
+  "secondary": ( bg: $secondary-color, hover: $secondary-color--accent ),
+  "success": ( bg: $success-color, hover: $success-color--accent ),
+  "danger": ( bg: $danger-color, hover: $danger-color--accent ),
+  "warning": ( bg: $warning-color, hover: $warning-color--accent )
+) !default;
+

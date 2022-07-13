@@ -1,0 +1,80 @@
+/////////////////////////////
+//text
+.text{
+	margin-bottom: 15px;
+	&:last-child{
+		margin-bottom: 0;
+	}
+}
+
+$sizes: "", "--sm", "--md", "--lg", "--xl";
+@mixin text-atr($size: "") {
+	//text align
+	.text_align-left#{$size} {
+		text-align: left;
+	}
+
+	.text_align-right#{$size} {
+		text-align: right;
+	}
+
+	.text_align-center#{$size} {
+		text-align: center;
+	}
+
+	//size
+	.text_xs#{$size} {
+		font-size: 10px;
+	}
+
+	.text_sm#{$size} {
+		font-size: 12px;
+	}
+
+	.text_default#{$size} {
+		font-size: $body-font-size;
+	}
+
+	.text_md#{$size} {
+		font-size: 16px;
+	}
+
+	.text_lg#{$size} {
+		font-size: 18px;
+	}
+
+	.text_lg-1#{$size}{
+		font-size: 20px;
+		line-height: 1.2;
+	}
+
+	.text_xl#{$size} {
+		font-size: 25px;
+		line-height: 1.1;
+	}
+
+	.text_xxl#{$size} {
+		font-size: 30px;
+		line-height: 1;
+	}
+
+	.text_hero#{$size} {
+		font-size: 40px;
+		line-height: 1;
+	}
+}
+
+// Generate
+@include text-atr();
+@include sm {
+	@include text-atr("--sm");
+}
+@include md {
+	@include text-atr("--md");
+}
+@include lg {
+	@include text-atr("--lg");
+}
+@include xl {
+	@include text-atr("--xl");
+}

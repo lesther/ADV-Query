@@ -1,0 +1,22 @@
+/////////////////////////////
+//table
+table{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+td, th{
+    @include transition(0.3s);
+    padding: 10px 15px;
+    vertical-align: top;
+}
+//bootstrap format
+.table>:not(caption)>*>*{
+    padding:10px;
+}
+.table-hover>tbody>tr:hover{
+    --bs-table-accent-bg: rgba($color: $primary-color, $alpha: 0.1);
+}
+.table>:not(:last-child)>:last-child>*{
+    border-bottom-color: inherit;
+}

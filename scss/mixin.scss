@@ -1,0 +1,322 @@
+@mixin xs {
+	@media (min-width: #{$screen-xs}) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@media (min-width: #{$screen-sm}) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (min-width: #{$screen-md}) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media (min-width: #{$screen-lg}) {
+		@content;
+	}
+}
+
+@mixin xl {
+	@media (min-width: #{$screen-xl}) {
+		@content;
+	}
+}
+
+@mixin xxl {
+	@media (min-width: #{$screen-xxl}) {
+		@content;
+	}
+}
+
+@mixin hd {
+	@media (min-width: #{$screen-hd}) {
+		@content;
+	}
+}
+//specific
+@mixin only-mobile {
+	@media (max-width: #{$screen-md}) {
+		@content;
+	}
+}
+@mixin only-panel-menu {
+	@media (min-width: #{$screen-md}) and (max-width: #{$screen-xxl}) {
+		@content;
+	}
+}
+@mixin to-xl {
+	@media (max-width: #{$screen-xl}) {
+		@content;
+	}
+}
+//none standard browser
+@mixin ie-browser {
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		@content;
+	}
+  }
+  @mixin safari-browser {
+	@media not all and (min-resolution: 0.001dpcm) {
+		@supports (-webkit-appearance: none) {
+			@content;
+		}
+	}
+  }
+  @mixin none-standard-browser {
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		@content;
+	}
+	@media not all and (min-resolution: 0.001dpcm) {
+		@supports (-webkit-appearance: none) {
+			@content;
+		}
+	}
+	@media (-webkit-min-device-pixel-ratio: 1.5) and (max-width: 360px),
+	(-o-min-device-pixel-ratio: 3/2) and (max-width: 360px),
+	(min--moz-device-pixel-ratio: 1.5) and (max-width: 360px),
+	(min-device-pixel-ratio: 1.5) and (max-width: 360px)
+	{  
+		@content;
+	}  
+}
+
+//////////////////////////////
+//transitions
+@mixin transition($transitionValue) {
+	-moz-transition: all $transitionValue ease;
+	-webkit-transition: all $transitionValue ease;
+	-o-transition: all $transitionValue ease;
+	transition: all $transitionValue ease;
+}
+
+//////////////////////////////
+// border radius
+@mixin corner($tl:null, $tr:null, $br:null, $bl:null){
+	-webkit-border-radius: $tl;
+	-moz-border-radius: $tl;
+	border-radius: $tl;
+	border-top-left-radius: $tl;
+	border-top-right-radius: $tr;
+	border-bottom-right-radius: $br;
+	border-bottom-left-radius: $bl;
+}
+
+//////////////////////////////
+// shadow
+@mixin shadow($shadowValue) {
+	-webkit-box-shadow: $shadowValue;
+	-moz-box-shadow: $shadowValue;
+	box-shadow: $shadowValue;
+}
+
+//////////////////////////////
+// opacity
+@mixin opacity($opacityValue) {
+	filter: alpha(opacity=#{$opacityValue});
+	-moz-opacity: calc(#{$opacityValue} / 100);
+	opacity: calc(#{$opacityValue} / 100);
+}
+
+//////////////////////////////
+// positions
+//fixed
+@mixin fixed {
+	position: fixed;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+}
+@mixin position($posValue, $ptpValue:null, $btfValue:null, $plfValue:null, $prtValue:null)  {
+	position: $posValue;
+	top: $ptpValue;
+	bottom: $btfValue;
+	left: $plfValue;
+	right: $prtValue;
+}
+
+// fonts
+//font awesome
+@mixin icon-font {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	font-size: $icon-font-size-sm;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	line-height: 1;
+}
+
+// placeholder
+@mixin placeholder {
+	color: $light-color;
+	font-weight: 300;
+}
+
+// truncate
+@mixin truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+}
+//
+@mixin word-break {
+	-ms-word-break: break-all;
+	word-break: break-all;
+	word-break: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+}
+
+// background size
+// cover
+@mixin background($bgSizeValue, $bgPositionValue:null, $bgRepeatValue:null) {
+	-webkit-background-size: $bgSizeValue;
+	-moz-background-size: $bgSizeValue;
+	-o-background-size: $bgSizeValue;
+	background-size: $bgSizeValue;
+	background-position: $bgPositionValue;
+	background-repeat: $bgRepeatValue;
+}
+//transform
+@mixin transform($transformValue) {
+	-webkit-transform: $transformValue;
+	-moz-transform: $transformValue;
+	-ms-transform: $transformValue;
+	-o-transform: $transformValue;
+	transform: $transformValue;
+}
+
+
+//gradient
+@mixin bg-horizontal-gradient(
+	$initColor,
+	$initAlpha,
+	$initLocation,
+	$endingColor,
+	$endingAlpha,
+	$endingLocation
+) {
+	background: $initColor;
+	background: -moz-linear-gradient(
+		left,
+		rgba($color: $initColor, $alpha: $initAlpha) $initLocation,
+		rgba($color: $endingColor, $alpha: $endingAlpha) $endingLocation
+	);
+	background: -webkit-linear-gradient(
+		left,
+		rgba($color: $initColor, $alpha: $initAlpha) $initLocation,
+		rgba($color: $endingColor, $alpha: $endingAlpha) $endingLocation
+	);
+	background: linear-gradient(
+		to right,
+		rgba($color: $initColor, $alpha: $initAlpha) $initLocation,
+		rgba($color: $endingColor, $alpha: $endingAlpha) $endingLocation
+	);
+}
+
+@mixin bg-vertical-gradient(
+	$initColor,
+	$initAlpha,
+	$initLocation,
+	$endingColor,
+	$endingAlpha,
+	$endingLocation
+) {
+	background: $initColor;
+	background: -moz-linear-gradient(
+		top,
+		rgba($color: $initColor, $alpha: $initAlpha) $initLocation,
+		rgba($color: $endingColor, $alpha: $endingAlpha) $endingLocation
+	);
+	background: -webkit-linear-gradient(
+		top,
+		rgba($color: $initColor, $alpha: $initAlpha) $initLocation,
+		rgba($color: $endingColor, $alpha: $endingAlpha) $endingLocation
+	);
+	background: linear-gradient(
+		to bottom,
+		rgba($color: $initColor, $alpha: $initAlpha) $initLocation,
+		rgba($color: $endingColor, $alpha: $endingAlpha) $endingLocation
+	);
+}
+
+//image cover
+@mixin background-image($image-mobile, $image-web) {
+	background-image: url($image-mobile);
+
+	@include md {
+		background-image: url($image-web);
+	}
+}
+
+
+//////////////////////////////
+//panel
+@mixin side-section--reset{
+	padding: 0;
+	position: initial;
+	top: auto;
+	height: auto;
+	width: auto;
+	max-width: none;
+	left: auto;
+	@include transform(initial);
+    overflow: initial;
+}
+@mixin side-section($positionValue){
+	overflow: auto;
+	padding: 30px;
+	position: fixed;
+	top: 0;
+	height: 100%;
+	width: calc(100% - 20px);
+	z-index: 99;
+	max-width: 350px;
+	flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+	@include transition(0.3s);
+	@include sm{
+		max-width: 400px;
+	}
+	@if $positionValue == left {
+		left: 0;
+		@include transform(translateX(-100%));
+	}
+	@else{
+		@include transform(translateX(100%));
+		right: 0;
+	}
+}
+.panel__overlay:before{
+	content: "";
+    left: 0;
+    top: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: block;
+    z-index: 98;
+    background-color: rgba($color: $dark-color, $alpha: 0.7);
+    @include opacity(0);
+    visibility: hidden;
+	@include transition(0.3s);
+}
+
+.panel__wrap--left{
+	@include side-section(left);
+}
+.panel__wrap--right{
+	@include side-section(right);
+}

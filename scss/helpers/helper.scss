@@ -1,0 +1,28 @@
+/////////////////////////////
+//links
+.h-text-underline{
+	text-decoration: underline;
+	&-hover:hover{
+		text-decoration: underline;
+	}
+}
+
+//transition
+.h-transition-03{
+	@include transition(0.3s);
+}
+
+//transform
+.h-uppercase{
+	text-transform: uppercase;
+}
+
+//truncate
+.h-word-break{
+	@include word-break;
+}
+.truncate-text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

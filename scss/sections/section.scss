@@ -1,0 +1,138 @@
+//section
+.section {
+	padding: 60px 25px;
+	@include md {
+		padding-left: 40px;
+		padding-right: 40px;
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+}
+
+
+$sizes: "", "--sm", "--md", "--lg", "--xl";
+@mixin section_pad($size: "") {
+	.section_spacing-none#{$size} {
+		padding: 0;
+	}
+
+	.section_pad-none#{$size} {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.section_pad-xs#{$size} {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+
+	.section_pad-sm#{$size} {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+
+	.section_pad-md#{$size} {
+		padding-top: 150px;
+		padding-bottom: 150px;
+	}
+
+	.section_pad-lg#{$size} {
+		padding-top: 200px;
+		padding-bottom: 200px;
+	}
+
+	.section_pad-xl#{$size} {
+		padding-top: 250px;
+		padding-bottom: 250px;
+	}
+
+	/**
+	 * Top padding
+	 */
+
+	.section_pad-top_none#{$size} {
+		padding-top: 0;
+	}
+
+	.section_pad-top_xs#{$size} {
+		padding-top: 40px;
+	}
+
+	.section_pad-top_sm#{$size} {
+		padding-top: 60px;
+	}
+
+	.section_pad-top_md#{$size} {
+		padding-top: 150px;
+	}
+
+	.section_pad-top_lg#{$size} {
+		padding-top: 200px;
+	}
+
+	.section_pad-top_xl#{$size} {
+		padding-top: 250px;
+	}
+
+	.section_pad-top_xl-1#{$size} {
+		padding-top: 300px;
+	}
+
+	.section_pad-top_xxl#{$size} {
+		padding-top: 400px;
+	}
+
+	/**
+	 * Bottom padding
+	 */
+
+	.section_pad-bottom_none#{$size} {
+		padding-bottom: 0;
+	}
+
+	.section_pad-bottom_xs#{$size} {
+		padding-bottom: 40px;
+	}
+
+	.section_pad-bottom_sm#{$size} {
+		padding-bottom: 60px;
+	}
+
+	.section_pad-bottom_md#{$size} {
+		padding-bottom: 150px;
+	}
+
+	.section_pad-bottom_lg#{$size} {
+		padding-bottom: 200px;
+	}
+
+	.section_pad-bottom_xl#{$size} {
+		padding-bottom: 250px;
+	}
+}
+
+
+// Generate font size helpers
+@include section_pad();
+@include sm {
+	@include section_pad("--sm");
+}
+@include md {
+	@include section_pad("--md");
+}
+@include lg {
+	@include section_pad("--lg");
+}
+@include xl {
+	@include section_pad("--xl");
+}
+
+//format color
+@each $colorClass, $value in $colorClass-palette {
+	.section_color-#{$colorClass} {
+		background-color: $value;
+	}
+	.color--#{$colorClass} {
+		color: $value;
+	}
+}

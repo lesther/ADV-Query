@@ -1,0 +1,83 @@
+/////////////////////////////
+//title
+.title {
+	font-family: $font-family-secondary;
+	margin-bottom: 10px;
+	font-weight: bold;
+	&:last-child{
+		margin-bottom: 0;
+	}
+}
+
+$sizes: "", "--sm", "--md", "--lg", "--xl";
+@mixin title-atr($size: "") {
+	//text align
+	//align
+	.title_align-center#{$size} {
+		text-align: center;
+	}
+
+	.title_align-left#{$size} {
+		text-align: left;
+	}
+
+	//sizes
+	.title_xs#{$size} {
+		font-size: 16px;
+	}
+
+	.title_xs-1#{$size} {
+		font-size: 20px;
+	}
+
+	.title_sm#{$size} {
+		font-size: 22px;
+		line-height: 1.1;
+	}
+
+	.title_sm-1#{$size} {
+		font-size: 25px;
+		line-height: 1.1;
+	}
+
+	.title_md#{$size} {
+		font-size: 30px;
+		line-height: 1.1;
+	}
+
+	.title_lg#{$size} {
+		font-size: 35px;
+		line-height: 1;
+	}
+
+	.title_xl#{$size} {
+		font-size: 40px;
+		line-height: 1;
+	}
+
+	.title_xxl#{$size} {
+		font-size: 45px;
+		line-height: 1;
+	}
+
+	.title_hero#{$size} {
+		font-size: 50px;
+		line-height: 1;
+	}
+
+}
+
+// Generate
+@include title-atr();
+@include sm {
+	@include title-atr("--sm");
+}
+@include md {
+	@include title-atr("--md");
+}
+@include lg {
+	@include title-atr("--lg");
+}
+@include xl {
+	@include title-atr("--xl");
+}

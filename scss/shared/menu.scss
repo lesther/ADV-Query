@@ -1,0 +1,96 @@
+//header menu mobile
+.sidebar {
+	position: relative;
+	z-index: 999;
+
+	@include lg {
+		display: none;
+	}
+}
+.sidebar__wrap {
+	@include position(fixed, 0, auto, auto, 0);
+	min-height: 100vh;
+	margin-right: 0;
+	width: 100%;
+	width: 250px;
+	z-index: 2;
+	background-color: $light-color;
+	@include transition(0.3s);
+	text-align: center;
+	padding: 20px;
+}
+.toggled{
+	.sidebar__wrap{
+		margin-right: -250px;
+		
+		@include lg {
+			display: none;
+		}
+	}
+}
+.sidebar__heading {
+	padding: 20px;
+	text-align: center;
+}
+.sidebar__item {
+	border-bottom: 1px solid $gray-border-color;
+	color: $dark-color;
+
+	&:last-child {
+		border: 0;
+	}
+	&:hover,
+	&.active {
+		color: $primary-color;
+		background-color: rgba($color: $primary-color, $alpha: 0.1);
+	}
+	&-link {
+		padding: 20px;
+	}
+}
+.sidebar__item-btn {
+	color: initial;
+	background-color: initial;
+
+	&:hover,
+	&.active {
+		color: initial;
+		background-color: initial;
+	}
+	&.active {
+		.btn {
+			background-color: $secondary-color;
+			color: $light-color;
+		}
+	}
+}
+
+.btn-menu {
+	width: 35px;
+	height: 35px;
+	display: inline-block;
+	padding: 5px;
+	border: 1px solid $primary-color;
+	@include corner(5px);
+	color: $primary-color;
+	@include transition(0.3s);
+}
+
+// overlay
+.menu-overlay {
+	@include position(fixed, 0, auto, 0);
+	width: 100%;
+	height: 100%;
+	background-color: rgba($color: $dark-color, $alpha: 0.7);
+	@include opacity(100);
+	visibility: visible;
+	@include transition(0.3s);
+	
+	@include lg {
+		display: none;
+	}
+}
+.toggled .menu-overlay {
+	@include opacity(0);
+	visibility: hidden;
+}
