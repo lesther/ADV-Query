@@ -8,6 +8,10 @@
 	}
 }
 
+.container__shadow{
+  @include shadow(0 0 10px 0 $gray-border-color);
+}
+
 /////////////////////////////
 //container-size
 $sizes: "", "--sm", "--md", "--lg", "--xl";

@@ -1,1 +1,23 @@
-//accordion
+.collapse__content{
+    display: none;
+    &_visible{
+        display: block;
+    }
+  
+}
+
+.collapse__icon{
+    &_active{
+     transform: rotateZ(90deg);
+    }
+ }
+
+ .collapse__link{
+    &_active{
+        color: $gray-color;
+    }
+
+    &:hover{
+        color: $gray-color;
+    }
+ }
