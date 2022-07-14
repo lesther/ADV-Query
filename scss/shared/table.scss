@@ -1,22 +1,81 @@
-/////////////////////////////
-//table
-table{
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
+table, thead, tbody, th, td, tr, caption, tfoot{
+    display: block;
 }
-td, th{
-    @include transition(0.3s);
-    padding: 10px 15px;
-    vertical-align: top;
+
+caption{
+    padding: 8px 5px;
+    text-align: left;
+    margin-bottom: 1px;
 }
-//bootstrap format
-.table>:not(caption)>*>*{
-    padding:10px;
+
+th, td{
+    padding: 0;
+    text-align: left;
 }
-.table-hover>tbody>tr:hover{
-    --bs-table-accent-bg: rgba($color: $primary-color, $alpha: 0.1);
+
+thead tr{
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    color:  $dark-color;
 }
-.table>:not(:last-child)>:last-child>*{
-    border-bottom-color: inherit;
+
+
+td{
+    display: flex;
 }
+
+thead td{
+    padding: 5px;
+    text-align: left;
+}
+
+tbody tr td > span{
+    display: table-cell;
+    padding: 5px;
+}
+
+@include lg{
+    table{
+        display: table;
+        border-collapse: collapse; 
+        width: 100%;
+        table-layout: fixed;
+    }
+    th, td{
+        display: table-cell;
+    }
+    tbody{
+        display: table-row-group;
+    }
+    thead{
+        display: table-header-group;
+    }
+    tr{
+        display: table-row;
+        margin-bottom: 0;
+    }
+    thead tr{
+        position: static;
+    }
+    td{
+        &:before{
+            display: none !important;
+        }
+    }
+    caption{
+        display: table-caption;
+    }
+}
+td:before { 
+    width: 50%;     
+    color: $dark-color;
+    font-weight: bold;
+}
+#table1 td:nth-of-type(1):before { content: "MRN"; }
+#table1 td:nth-of-type(2):before { content: "DOB"; }
+#table1 td:nth-of-type(3):before { content: "ACCOUNT #"; }
+
+#table2 td:nth-of-type(1):before { content: "Location"; }
+#table2 td:nth-of-type(2):before { content: "Admit"; }
+#table2 td:nth-of-type(3):before { content: "Discharge #"; }

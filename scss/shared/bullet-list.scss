@@ -1,2 +1,15 @@
 /////////////////////////////
 //bullet list
+.bullet-list{
+    padding-left: 15px;
+    padding-right: 15px;
+    &__item_ordered{
+        list-style: decimal;
+    }
+    &__item_unordered{
+        list-style: disc;
+    }
+    &__item_document-icon{
+        list-style-image: url("/images/file.svg");
+    }
+}
