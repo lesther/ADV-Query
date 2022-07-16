@@ -27,17 +27,120 @@
 	text-overflow: ellipsis;
 }
 
-.h-spacing-bottom-sm{
-	margin-bottom: 15px;
+
+//spacing
+@mixin h-spacing-atr($size: "") {
+	//size
+	.h-spacing-none#{$size} {
+		margin: 0;
+	}
+	.h-spacing-xs#{$size} {
+		margin: 5px;
+	}
+	.h-spacing-sm#{$size} {
+		margin: 10px;
+	}
+	.h-spacing-md#{$size} {
+		margin: 15px;
+	}
+	.h-spacing-lg#{$size} {
+		margin: 20px;
+	}
+	.h-spacing-xl#{$size} {
+		margin: 30px;
+	}
+	.h-spacing-xxl#{$size} {
+		margin: 40px;
+	}
+
+	//vertical
+	.h-spacing-vertical-xs#{$size} {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	.h-spacing-vertical-sm#{$size} {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.h-spacing-vertical-md#{$size} {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+	.h-spacing-vertical-lg#{$size} {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	.h-spacing-vertical-xl#{$size} {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	.h-spacing-vertical-xxl#{$size} {
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+
+	//top
+	.h-spacing-top-xs#{$size} {
+		margin-top: 5px;
+	}
+	.h-spacing-top-sm#{$size} {
+		margin-top: 10px;
+	}
+	.h-spacing-top-md#{$size} {
+		margin-top: 15px;
+	}
+	.h-spacing-top-lg#{$size} {
+		margin-top: 20px;
+	}
+	.h-spacing-top-xl#{$size} {
+		margin-top: 30px;
+	}
+	.h-spacing-top-xxl#{$size} {
+		margin-top: 40px;
+	}
+
+	//bottom
+	.h-spacing-bottom-xs#{$size} {
+		margin-bottom: 5px;
+	}
+	.h-spacing-bottom-sm#{$size} {
+		margin-bottom: 10px;
+	}
+	.h-spacing-bottom-md#{$size} {
+		margin-bottom: 15px;
+	}
+	.h-spacing-bottom-lg#{$size} {
+		margin-bottom: 20px;
+	}
+	.h-spacing-bottom-xl#{$size} {
+		margin-bottom: 30px;
+	}
+	.h-spacing-bottom-xxl#{$size} {
+		margin-bottom: 40px;
+	}
 }
 
-.h-spacing-top-sm{
-	margin-top: 15px;
+// Generate
+@include h-spacing-atr();
+@include sm {
+	@include h-spacing-atr("--sm");
+}
+@include md {
+	@include h-spacing-atr("--md");
+}
+@include lg {
+	@include h-spacing-atr("--lg");
+}
+@include xl {
+	@include h-spacing-atr("--xl");
 }
 
-.h-spacing-bottom-md{
-	margin-bottom: 30px;
+//width
+.h-width-100 {
+	width: 100%;
 }
+
+//elliot
 
 .h-inner-spacing-sm{
 	padding: 15px;

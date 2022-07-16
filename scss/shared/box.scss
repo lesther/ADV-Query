@@ -32,3 +32,10 @@
 		border-color: rgba($color: $gray-color, $alpha: 0.4);
 	}
 }
+//format color
+@each $colorClass, $value in $mixClass-palette {
+	.box--#{$colorClass} {
+		background-color: map-get($value, 'bg');
+		color: map-get($value, 'color');
+	}
+}

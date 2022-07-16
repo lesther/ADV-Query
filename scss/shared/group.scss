@@ -1,0 +1,152 @@
+/////////////////////////////
+// groups
+@mixin inline {
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+  
+@mixin stack {
+    flex-direction: column;
+    width: 100%;
+}
+  
+.group {
+    display: flex;
+    flex: 1;
+    @include stack;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@mixin group-modifiers($size: "") {
+    .group_inline#{$size} {
+        @include inline;
+    }
+
+    //content align
+    .group_content-center#{$size} {
+        justify-content: center;
+    }
+    .group_content-right#{$size} {
+        justify-content: flex-end;
+    }
+    .group_content-left#{$size} {
+        justify-content: flex-start;
+    }
+  
+    //group align
+    .group_align-center#{$size} {
+        align-items: center;
+    }
+    .group_align-left#{$size} {
+        align-items: flex-start;
+    }
+    .group_align-bottom#{$size} {
+        align-items: flex-end;
+    }
+    .group_align-initial#{$size} {
+        align-items: initial;
+    }
+
+    //fill
+    .group_fill#{$size} {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    //wrap
+    .group_wrap#{$size} {
+        flex-wrap: wrap;
+    }
+    .group_nowrap#{$size} {
+        flex-wrap: nowrap;
+    }
+
+    //flex
+    .group_flex-initial {
+        flex: initial;
+    }
+
+    //direction
+    .group_row-reverse#{$size} {
+        flex-direction: row-reverse;
+    }
+
+    .group_column-reverse#{$size} {
+        flex-direction: column-reverse;
+    }
+
+    //size
+    .group_half#{$size} {
+        max-width: 50%;
+    }
+    .group_third_quarter#{$size} {
+        max-width: 75%;
+    }
+    .group_full-width#{$size} {
+        max-width: 100%;
+    }
+    .group_xs#{$size} {
+        max-width: 300px;
+    }
+    .group_xs-1#{$size} {
+        max-width: 350px;
+    }
+}
+
+// Generate font size helpers
+@include group-modifiers();
+@include sm {
+  @include group-modifiers("--sm");
+}
+
+@include md {
+  @include group-modifiers("--md");
+}
+
+@include lg {
+  @include group-modifiers("--lg");
+}
+
+@include xl {
+  @include group-modifiers("--xl");
+}
+
+
+//gap
+@mixin group_spacing($size: "") {
+    .group_spacing-none#{$size} {
+		gap: 0;
+	}
+    .group_spacing-xxs#{$size} {
+		gap: 5px;
+	}
+	.group_spacing-xs#{$size} {
+		gap: 10px;
+	}
+	.group_spacing-sm#{$size} {
+		gap: 20px;
+	}
+	.group_spacing-md#{$size} {
+		gap: 30px;
+	}
+	.group_spacing-lg#{$size} {
+		gap: 40px;
+	}
+	.group_spacing-xl#{$size} {
+		gap: 50px;
+	}
+}
+@include group_spacing();
+@include sm {
+	@include group_spacing("--sm");
+}
+@include md {
+	@include group_spacing("--md");
+}
+@include lg {
+	@include group_spacing("--lg");
+}
+@include xl {
+	@include group_spacing("--xl");
+}

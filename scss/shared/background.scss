@@ -10,9 +10,7 @@
 		content: "";
 		background-image: inherit;
 		@extend .full-image;
-		@include position(absolute, 0, auto, 0);
-		height: 100%;
-		width: 100%;
+		@include position(absolute, 0, null, 0, null, 100%, 100%);
 		z-index: 1;
 	}
 	> *{
@@ -34,13 +32,15 @@
 }
 
 /////////////////////////////
-//color - text/background
 //format
 @each $colorClass, $value in $colorClass-palette {
-.bg--#{$colorClass} {
-		background-color: $value;
-	}
 	.color--#{$colorClass} {
 		color: $value;
+	}
+}
+@each $colorClass, $value in $mixClass-palette {
+	.bg--#{$colorClass} {
+		background-color: map-get($value, 'bg');
+		color: map-get($value, 'color');
 	}
 }

@@ -2,12 +2,31 @@
 //text
 .text{
 	margin-bottom: 15px;
+	margin-top: 0;
 	&:last-child{
 		margin-bottom: 0;
 	}
 }
 
-$sizes: "", "--sm", "--md", "--lg", "--xl";
+//text styles
+.text_style-italic {
+	font-style: italic;
+}
+
+//text weight
+.text_weight-thin {
+	font-weight: 300;
+}
+.text_weight-medium {
+	font-weight: 500;
+}
+.text_weight-bold {
+	font-weight: 700;
+}
+.text_weight-semi-bold {
+	font-weight: 600;
+}
+
 @mixin text-atr($size: "") {
 	//text align
 	.text_align-left#{$size} {
@@ -62,6 +81,38 @@ $sizes: "", "--sm", "--md", "--lg", "--xl";
 		font-size: 40px;
 		line-height: 1;
 	}
+
+	//spacing
+	.text_spacing-none#{$size} {
+		margin-bottom: 0;
+	}
+	.text_spacing-xs#{$size} {
+		margin-bottom: 5px;
+	}
+	.text_spacing-sm#{$size} {
+		margin-bottom: 10px;
+	}
+	.text_spacing-md#{$size} {
+		margin-bottom: 15px;
+	}
+	.text_spacing-lg#{$size} {
+		margin-bottom: 20px;
+	}
+	.text_spacing-xl#{$size} {
+		margin-bottom: 30px;
+	}
+	.text_spacing-xxl#{$size} {
+		margin-bottom: 40px;
+	}
+}
+
+/////////////////////////////
+//colors
+//format
+@each $colorClass, $value in $colorClass-palette {
+	.text--#{$colorClass} {
+		color: $value;
+	}
 }
 
 // Generate
@@ -77,4 +128,36 @@ $sizes: "", "--sm", "--md", "--lg", "--xl";
 }
 @include xl {
 	@include text-atr("--xl");
+}
+
+//themes
+.highlight_text {
+	padding: 5px 8px;
+	position: relative;
+	border: 0 solid transparent;
+	overflow: hidden;
+}
+.highlight_text--bordered {
+	border-width: 1px;
+	border-color: 1px;
+}
+.highlight_text:before {
+	content: "";
+	@include position(absolute, 0, null, 0, null, 100%, 100% );
+	@include opacity(10);
+	@include corner(3px);
+	padding: 0;
+	z-index: -1;
+}
+
+//format color
+@each $colorClass, $value in $mixClass-palette {
+	.highlight_text-#{$colorClass} {
+		@extend .highlight_text;
+		border-color: map-get($value, 'bg');
+		color: map-get($value, 'bg');
+	}
+	.highlight_text-#{$colorClass}:before {
+		background-color: map-get($value, 'bg');
+	}
 }

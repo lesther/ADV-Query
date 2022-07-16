@@ -8,6 +8,7 @@
 //shared
 @import "shared/menu.scss";
 @import "shared/background.scss";
+@import "shared/group.scss";
 @import "shared/button.scss";
 @import "shared/wrap.scss";
 @import "shared/title.scss";
@@ -21,8 +22,10 @@
 @import "shared/modal.scss";
 @import "shared/table.scss";
 @import "shared/box.scss";
+@import "shared/card.scss";
 @import "shared/tabs.scss";
 @import "shared/panels.scss";
+@import "shared/divider.scss";
 
 //helpers
 @import "helpers/helper.scss";

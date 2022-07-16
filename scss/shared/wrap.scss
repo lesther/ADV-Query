@@ -1,6 +1,6 @@
 /////////////////////////////
 //wrapper
-.container--align-center {
+.container {
 	margin-left: auto;
 	margin-right: auto;
 	@include md {
@@ -14,7 +14,6 @@
 
 /////////////////////////////
 //container-size
-$sizes: "", "--sm", "--md", "--lg", "--xl";
 @mixin container-atr($size: "") {
   .container_align-left#{$size} {
     margin-right: auto;
