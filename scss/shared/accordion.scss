@@ -5,6 +5,9 @@
     position: relative;
     border-bottom: 1px solid $split-color;
     @include transition(0.3s);
+    &:hover {
+        color: $success-color;
+    }
 }
 .collapse__header:before {
     content: "";
@@ -16,12 +19,15 @@
 }
 .collapse__header-icon {
     @extend .collapse__header;
-    padding-right: 45px;
+    padding-right: 30px;
+    &:hover:after {
+        background-image: url('../images/chevron_bottom-success.svg')
+    }
 }
 .collapse__header-icon:after {
     content: "";
     @include transition(0.3s);
-	@include position(absolute, 15px, null, null, 10px, 25px, 25px);
+	@include position(absolute, 15px, null, null, 0, 25px, 25px);
     @include background(100%, center, no-repeat);
     background-image: url('../images/chevron_bottom-gray.svg')
 }
@@ -30,9 +36,19 @@
 }
 
 //content
-
+.collapse__content {
+    overflow: auto;
+    max-height: 0;
+    @include transition(0.3s);
+}
+.collapse__content-wrap {
+    padding: 10px 0;
+}
 
 //active
+.collapse__header--active ~ .collapse__content {
+    max-height: 15rem;
+}
 .collapse__header--active {
     color: $success-color;
 }

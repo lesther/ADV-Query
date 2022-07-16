@@ -136,10 +136,12 @@
 	position: relative;
 	border: 0 solid transparent;
 	overflow: hidden;
+	z-index: 1;
+	border: 0px solid $gray-border-color;
 }
-.highlight_text--bordered {
+.highlight_text-bordered {
+	@extend .highlight_text;
 	border-width: 1px;
-	border-color: 1px;
 }
 .highlight_text:before {
 	content: "";
@@ -149,9 +151,27 @@
 	padding: 0;
 	z-index: -1;
 }
+.highlight_text-oval {
+	@extend .highlight_text;
+	padding: 8px 15px;
+	@include corner(40px);
+	display: inline-block;
+	width: auto;
+	&.group {
+		display: inline-flex;
+	}
+}
 
 //format color
 @each $colorClass, $value in $mixClass-palette {
+	.highlight_text-oval-#{$colorClass} {
+		@extend .highlight_text-oval;
+		border-color: map-get($value, 'bg');
+		color: map-get($value, 'bg');
+	}
+	.highlight_text-oval-#{$colorClass}:before {
+		background-color: map-get($value, 'bg');
+	}
 	.highlight_text-#{$colorClass} {
 		@extend .highlight_text;
 		border-color: map-get($value, 'bg');
@@ -159,5 +179,10 @@
 	}
 	.highlight_text-#{$colorClass}:before {
 		background-color: map-get($value, 'bg');
+	}
+}
+@each $colorClass, $value in $colorClass-palette {
+	.text_#{$colorClass} {
+		color: $value;
 	}
 }

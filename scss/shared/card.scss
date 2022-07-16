@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: initial;
     overflow: hidden;
+    background-color: $light-color
 }
 .tile--rounded_sm {
     @include corner(10px);
@@ -13,8 +14,12 @@
     @include corner(20px);
 }
 .tile--shadow-sm {
-    @include shadow(0 0 10px 0 $gray-border-color);
+    @include shadow(0 0 10px 0 rgba($color: $dark-color, $alpha: 0.15));
 }
+.tile--shadow-lg {
+    @include shadow(0 0 3rem 0 rgba($color: $dark-color, $alpha: 0.15));
+}
+
 
 //header
 .tile__header {
@@ -28,4 +33,7 @@
 //body
 .tile__body {
     padding: 20px;
+    @include md {
+        padding: 40px
+    }
 }
