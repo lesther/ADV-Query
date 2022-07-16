@@ -2,6 +2,7 @@
 //title
 .title {
 	font-family: $font-family-secondary;
+	margin-top: 0;
 	margin-bottom: 10px;
 	font-weight: bold;
 	&:last-child{
@@ -9,7 +10,6 @@
 	}
 }
 
-$sizes: "", "--sm", "--md", "--lg", "--xl";
 @mixin title-atr($size: "") {
 	//text align
 	//align
@@ -65,6 +65,39 @@ $sizes: "", "--sm", "--md", "--lg", "--xl";
 		line-height: 1;
 	}
 
+	//spacing
+	.title_spacing-none#{$size} {
+		margin-bottom: 0;
+	}
+	.title_spacing-xs#{$size} {
+		margin-bottom: 5px;
+	}
+	.title_spacing-sm#{$size} {
+		margin-bottom: 10px;
+	}
+	.title_spacing-md#{$size} {
+		margin-bottom: 15px;
+	}
+	.title_spacing-lg#{$size} {
+		margin-bottom: 20px;
+	}
+	.title_spacing-xl#{$size} {
+		margin-bottom: 30px;
+	}
+	.title_spacing-xxl#{$size} {
+		margin-bottom: 40px;
+	}
+
+}
+
+/////////////////////////////
+//colors
+//format
+@each $colorClass, $value in $mixClass-palette {
+	.title--#{$colorClass} {
+		background-color: map-get($value, 'bg');
+		color: map-get($value, 'color');
+	}
 }
 
 // Generate
@@ -80,4 +113,29 @@ $sizes: "", "--sm", "--md", "--lg", "--xl";
 }
 @include xl {
 	@include title-atr("--xl");
+}
+
+//themes
+.title_letter_profile {
+	width: 35px;
+	height: 35px;
+	@include corner(100%);
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 20px;
+	display: block;
+	font-size: 0;
+	&::first-letter {
+		@extend .title_xs;
+		line-height: 35px;
+	}
+}
+//format color
+@each $colorClass, $value in $mixClass-palette {
+	.title_letter_profile-#{$colorClass} {
+		@extend .title_letter_profile;
+		background-color: map-get($value, 'bg');
+		color: map-get($value, 'color');
+	}
 }

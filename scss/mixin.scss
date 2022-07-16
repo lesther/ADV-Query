@@ -85,6 +85,8 @@
 		@content;
 	}  
 }
+//sizes
+$sizes: "", "--sm", "--md", "--lg", "--xl";
 
 //////////////////////////////
 //transitions
@@ -132,12 +134,14 @@
 	-moz-backface-visibility: hidden;
 	-ms-backface-visibility: hidden;
 }
-@mixin position($posValue, $ptpValue:null, $btfValue:null, $plfValue:null, $prtValue:null)  {
+@mixin position($posValue, $ptpValue:null, $btfValue:null, $plfValue:null, $prtValue:null, $widthValue:null, $heightValue:null)  {
 	position: $posValue;
 	top: $ptpValue;
 	bottom: $btfValue;
 	left: $plfValue;
 	right: $prtValue;
+	width: $widthValue;
+	height: $heightValue;
 }
 
 // fonts

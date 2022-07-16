@@ -9,8 +9,6 @@
 	}
 }
 
-
-$sizes: "", "--sm", "--md", "--lg", "--xl";
 @mixin section_pad($size: "") {
 	.section_spacing-none#{$size} {
 		padding: 0;

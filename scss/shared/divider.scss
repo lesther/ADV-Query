@@ -1,0 +1,18 @@
+/////////////////////////////
+//divider
+.divider {
+    display: block;
+    outline: 0;
+    border: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $split-color;
+}
+
+/////////////////////////////
+//format
+@each $colorClass, $value in $colorClass-palette {
+	.divider--#{$colorClass} {
+		background-color: $value;
+	}
+}
