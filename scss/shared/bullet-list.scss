@@ -1,2 +1,70 @@
 /////////////////////////////
 //bullet list
+.bullet-list {
+    list-style-type: none;
+	margin-left: 0;
+    margin-top: 0;
+	margin-bottom: 25px;
+    padding: 0;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+.bullet-list__item {
+    list-style-type: none;
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    counter-increment: li;
+}
+.bullet-list__item:before {
+    content: "";
+    @include corner(100%);
+    @include position(absolute, 6px, auto, 0, auto, 8px, 8px);
+    display: block;
+    font-weight: bold;
+    display: block;
+}
+
+@each $colorClass, $value in $colorClass-palette {
+	.bullet-list__item-#{$colorClass} {
+        @extend .bullet-list__item;
+	}
+    .bullet-list__item-#{$colorClass}:before {
+        background: $value;
+        color: $value;
+    }
+}
+@each $colorClass, $value in $mixClass-palette {
+    .bullet-list__item-#{$colorClass}-full {
+        @extend .bullet-list__item;
+        color: map-get($value, 'bg');
+	}
+	.bullet-list__item-#{$colorClass}-full:before {
+		background-color: map-get($value, 'bg');
+	}
+}
+
+//decimal
+.bullet-list--decimal {
+    counter-reset: item;
+}
+.bullet-list--decimal li {
+    padding-left: 40px;
+}
+.bullet-list--decimal li:before {
+    content: counters(item, ".") " .";
+    counter-increment: item;
+    font-weight: bold;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    top: 0px;
+    font-size: inherit;
+}
+/* &__item_unordered{
+    list-style: disc;
+}
+&__item_document-icon{
+    list-style-image: url("/images/file.svg");
+} */

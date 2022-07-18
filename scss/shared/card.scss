@@ -1,0 +1,31 @@
+/////////////////////////////
+//card
+.tile {
+    display: flex;
+    flex-direction: column;
+    align-items: initial;
+    overflow: hidden;
+}
+.tile--rounded_sm {
+    @include corner(10px);
+}
+.tile--rounded_md {
+    @include corner(20px);
+}
+.tile--shadow-sm {
+    @include shadow(0 0 10px 0 $gray-border-color);
+}
+
+//header
+.tile__header {
+    padding: 20px;
+}
+.tile__header--primary {
+    background-color: $primary-color;
+    color: $light-color;
+}
+
+//body
+.tile__body {
+    padding: 20px;
+}

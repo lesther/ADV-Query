@@ -5,7 +5,7 @@ $light-color: #fff;
 //fonts
 $dark-color: #1f1d1d;
 $dark-color--accent: #111010;
-$gray-color: #c2a0a0;
+$gray-color: #bdbdbd;
 $gray-color--accent: #4c4545;
 //background
 $lighter-color: #f4f4f4;
@@ -38,6 +38,7 @@ $colorClass-palette: (
 	"light": $light-color,
 	"dark": $dark-color,
 	"gray": $gray-color,
+	"gray-accent": $gray-color,
 	"leading": $leading-color,
 	"primary": $primary-color,
 	"primary-accent": $primary-color--accent,
@@ -48,6 +49,22 @@ $colorClass-palette: (
 	"disabled": $disabled-color,
 	"warning": $warning-color,
 	"lighter": $lighter-color
+) !default;
+
+$mixClass-palette: (
+	"light": ( bg: $light-color, color: inherit ),
+	"dark": ( bg: $dark-color, color: $light-color ),
+	"gray": ( bg: $gray-color, color: inherit ),
+	"leading": ( bg: $leading-color, color: $light-color ),
+	"primary": ( bg: $primary-color, color: $light-color ),
+	"primary-accent": ( bg: $primary-color--accent, color: $light-color ),
+	"secondary": ( bg: $secondary-color, color: $light-color ),
+	"secondary-accent": ( bg: $secondary-color--accent, color: $light-color ),
+	"success": ( bg: $success-color, color: $light-color ),
+	"danger": ( bg: $danger-color, color: $light-color ),
+	"disabled": ( bg: $disabled-color, color: $light-color ),
+	"warning": ( bg: $warning-color, color: $light-color ),
+	"lighter": ( bg: $lighter-color, color: inherit )
 ) !default;
 
 $buttons-palette: (
