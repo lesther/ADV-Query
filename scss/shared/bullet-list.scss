@@ -20,7 +20,7 @@
 .bullet-list__item:before {
     content: "";
     @include corner(100%);
-    @include position(absolute, 6px, auto, 0, auto, 8px, 8px);
+    @include position(absolute, 6px, auto, 0, auto, 6px, 6px);
     display: block;
     font-weight: bold;
     display: block;
@@ -55,16 +55,12 @@
 .bullet-list--decimal li:before {
     content: counters(item, ".") " .";
     counter-increment: item;
-    font-weight: bold;
     background-color: transparent;
+    font-weight: bold;
     width: auto;
     height: auto;
     top: 0px;
     font-size: inherit;
+    border-radius: 3px;
+    padding: 0px 5px;
 }
-/* &__item_unordered{
-    list-style: disc;
-}
-&__item_document-icon{
-    list-style-image: url("/images/file.svg");
-} */

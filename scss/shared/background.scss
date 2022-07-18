@@ -1,37 +1,8 @@
 /////////////////////////////
 //background
-.full-image{
-	@include background(cover, center, no-repeat);
-}
-.full-image--overlay{
-	position: relative;
-	@include background(0px, 0 200%);
-	&:before{
-		content: "";
-		background-image: inherit;
-		@extend .full-image;
-		@include position(absolute, 0, null, 0, null, 100%, 100%);
-		z-index: 1;
-	}
-	> *{
-		position: relative;
-		z-index: 2;
-	}
-}
-.full-image--overlay-thin:before{
-	@include opacity(10)
-}
-.full-image--overlay-light:before{
-	@include opacity(20)
-}
-.full-image--overlay-medium:before{
-	@include opacity(50)
-}
-.full-image--overlay-hard:before{
-	@include opacity(70)
-}
 
 /////////////////////////////
+// color
 //format
 @each $colorClass, $value in $colorClass-palette {
 	.color--#{$colorClass} {

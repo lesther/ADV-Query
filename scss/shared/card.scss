@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: initial;
     overflow: hidden;
+    background-color: $light-color
 }
 .tile--rounded_sm {
     @include corner(10px);
@@ -13,8 +14,12 @@
     @include corner(20px);
 }
 .tile--shadow-sm {
-    @include shadow(0 0 10px 0 $gray-border-color);
+    @include shadow(0 0 10px 0 rgba($color: $dark-color, $alpha: 0.15));
 }
+.tile--shadow-lg {
+    @include shadow(0 0 3rem 0 rgba($color: $dark-color, $alpha: 0.15));
+}
+
 
 //header
 .tile__header {
@@ -28,4 +33,40 @@
 //body
 .tile__body {
     padding: 20px;
+    @include md {
+        padding: 40px
+    }
+}
+
+.tile__footer {
+    padding: 20px;
+    @include md {
+        padding: 40px;
+    }
+}
+.tile__footer-pad_top-none {
+    padding-top: 0;
+}
+
+.tile__footer_wrap {
+    padding: 15px;
+    @extend .tile--rounded_sm;
+} 
+
+@each $colorClass, $value in $mixClass-palette {
+    .tile-#{$colorClass} {
+        @extend .tile;
+        background-color: map-get($value, 'bg');
+		color: map-get($value, 'color');
+    }
+    .tile__footer-#{$colorClass} {
+        @extend .tile__footer;
+		background-color: map-get($value, 'bg');
+		color: map-get($value, 'color');
+	}
+    .tile__footer_wrap-#{$colorClass} {
+        @extend .tile__footer_wrap;
+		background-color: map-get($value, 'bg');
+		color: map-get($value, 'color');
+	}
 }

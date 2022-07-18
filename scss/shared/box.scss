@@ -1,6 +1,6 @@
 /////////////////////////////
 //box
-.box{
+.box {
 	padding: 20px;
 	@include corner(10px);
 	border: 1px solid transparent;
@@ -13,28 +13,19 @@
 		padding: 15px;
 		@include corner(10px);
 	}
-	&--border-primary{
-		border-color: rgba($color: $primary-color, $alpha: 0.4);
-	}
-	&--border-secondary{
-		border-color: rgba($color: $secondary-color, $alpha: 0.4);
-	}
-	&--border-warning{
-		border-color: rgba($color: $warning-color, $alpha: 0.4);
-	}
-	&--border-success{
-		border-color: rgba($color: $success-color, $alpha: 0.4);
-	}
-	&--border-danger{
-		border-color: rgba($color: $danger-color, $alpha: 0.4);
-	}
-	&--border-gray{
-		border-color: rgba($color: $gray-color, $alpha: 0.4);
-	}
 }
 //format color
 @each $colorClass, $value in $mixClass-palette {
-	.box--#{$colorClass} {
+	.box_highlight-#{$colorClass} {
+		@extend .box;
+		background-color: rgba($color: map-get($value, 'bg'), $alpha: 0.1);
+		color: map-get($value, 'bg');
+	}
+	.box_bordered--#{$colorClass} {
+		border-color: rgba($color: map-get($value, 'bg'), $alpha: 0.4);
+	}
+	.box_#{$colorClass} {
+		@extend .box;
 		background-color: map-get($value, 'bg');
 		color: map-get($value, 'color');
 	}

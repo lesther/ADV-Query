@@ -3,7 +3,7 @@
 $background-body: #fff;
 $light-color: #fff;
 //fonts
-$dark-color: #1f1d1d;
+$dark-color: #1f1d1d;	
 $dark-color--accent: #111010;
 $gray-color: #bdbdbd;
 $gray-color--accent: #4c4545;
@@ -25,7 +25,7 @@ $secondary-color--accent: #fe6154;
 //forms
 $disabled-color: #bdbdbd;
 $gray-border-color: #cccccc;
-$split-color: rgba(0, 0, 0, 0.1);
+$split-color: rgba(0, 0, 0, 0.15);
 
 //////////////////////////////
 // panel
@@ -68,14 +68,14 @@ $mixClass-palette: (
 ) !default;
 
 $buttons-palette: (
-  "light": ( bg: $light-color, hover: $primary-color ),
-  "dark": ( bg: $dark-color, hover: $dark-color--accent ),
-  "gray": ( bg: $gray-color, hover: $gray-color--accent ),
-  "leading": ( bg: $leading-color, hover: $primary-color--accent ),
-  "primary": ( bg: $primary-color, hover: $primary-color--accent ),
-  "secondary": ( bg: $secondary-color, hover: $secondary-color--accent ),
-  "success": ( bg: $success-color, hover: $success-color--accent ),
-  "danger": ( bg: $danger-color, hover: $danger-color--accent ),
-  "warning": ( bg: $warning-color, hover: $warning-color--accent )
+  "light": ( bg: $light-color, hover: $primary-color, color: inherit ),
+  "dark": ( bg: $dark-color, hover: $dark-color--accent, color: $light-color ),
+  "gray": ( bg: $gray-color, hover: $gray-color--accent, color: $light-color ),
+  "leading": ( bg: $leading-color, hover: $primary-color--accent, color: $light-color ),
+  "primary": ( bg: $primary-color, hover: $primary-color--accent, color: $light-color ),
+  "secondary": ( bg: $secondary-color, hover: $secondary-color--accent, color: $light-color ),
+  "success": ( bg: $success-color, hover: $success-color--accent, color: $light-color ),
+  "danger": ( bg: $danger-color, hover: $danger-color--accent, color: $light-color ),
+  "warning": ( bg: $warning-color, hover: $warning-color--accent, color: $light-color )
 ) !default;
 
