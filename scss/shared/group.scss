@@ -150,3 +150,27 @@
 @include xl {
 	@include group_spacing("--xl");
 }
+
+@mixin group-item($size: '') {
+    .group__item#{$size} {
+      flex: 1 0 0%;
+    }
+    .group__item-auto#{$size} {
+      width: auto;
+      flex: initial;
+    }
+    .group__item-sm#{$size} {
+      flex: 1 0 0%;
+      max-width: 250px;
+    }
+    .group__item-md#{$size} {
+      flex: 1 0 0%;
+      max-width: 320px;
+    }
+    .group__item-lg#{$size} {
+      flex: 1 0 0%;
+      max-width: 360px;
+    }
+}
+
+@include group-item();

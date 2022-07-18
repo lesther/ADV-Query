@@ -40,6 +40,9 @@
 	.h-spacing-sm#{$size} {
 		margin: 10px;
 	}
+	.h-spacing-left-sm#{$size}{
+		margin-left: 10px;
+	}
 	.h-spacing-md#{$size} {
 		margin: 15px;
 	}
@@ -135,6 +138,11 @@
 	@include h-spacing-atr("--xl");
 }
 
+.h-spacing-vertical-none{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
 //width
 .h-width-100 {
 	width: 100%;
@@ -154,12 +162,20 @@
 	font-weight: bold;
 }
 
+.h-spacing-bottom-none{
+	margin-bottom: 0;
+}
+
 .h-display-flex{
 	display: flex;
 }
 
 .h-justify-content-between{
 	justify-content: space-between;
+}
+
+.h-align-self-end{
+	align-self: flex-end;
 }
 
 .h-align-items-center{
@@ -174,6 +190,10 @@
 	color: $gray-color;
 }
 
+.h-color-gray-accent{
+	color: $gray-color--accent;
+}
+
 .h-text-link{
 	&:hover{
 		color: #c2a0a0;
@@ -182,6 +202,10 @@
 
 .h-spacing-right-xs{
 	margin-right: 10px;
+}
+
+.h-warning-color-accent{
+	color: $warning-color--accent;
 }
 
 .h-flex-grow-1--md{
@@ -193,4 +217,54 @@
 	@include md{
 		flex-direction: row;
 	}
+}
+
+.h-width-50{
+	width: 50%;
+}
+
+.h-text-anchor-middle{
+	text-anchor: middle;
+}
+
+.h-corner-none{
+	@include corner(0,0,0,0);
+}
+
+.h-border-top-gray{
+	border-top: 1px solid $gray-border-color;
+}
+
+.h-border-bottom-gray{
+	border-bottom: 1px solid $gray-border-color;
+}
+
+.h-border-top-gray-bold{
+	border-top: 5px solid $gray-border-color;
+}
+
+.h-inner-spacing-left-lg{
+	padding-left: 20px;
+}
+
+.h-dot{
+	&:before{
+		content: '';
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		margin-top: 3.5px;
+	}
+
+	&_leading:before{
+		background-color: $leading-color;
+	}
+
+	&_danger:before{
+		background-color: $danger-color;
+	}
+}
+
+.h-line-height-1{
+	line-height: 1;
 }
