@@ -90,16 +90,6 @@
 
 }
 
-/////////////////////////////
-//colors
-//format
-@each $colorClass, $value in $mixClass-palette {
-	.title--#{$colorClass} {
-		background-color: map-get($value, 'bg');
-		color: map-get($value, 'color');
-	}
-}
-
 // Generate
 @include title-atr();
 @include sm {
@@ -131,8 +121,15 @@
 		line-height: 35px;
 	}
 }
-//format color
+
+/////////////////////////////
+//colors
+//format
 @each $colorClass, $value in $mixClass-palette {
+	.title--#{$colorClass} {
+		background-color: map-get($value, 'bg');
+		color: map-get($value, 'color');
+	}
 	.title_letter_profile-#{$colorClass} {
 		@extend .title_letter_profile;
 		background-color: map-get($value, 'bg');

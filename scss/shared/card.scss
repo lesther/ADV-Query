@@ -37,3 +37,36 @@
         padding: 40px
     }
 }
+
+.tile__footer {
+    padding: 20px;
+    @include md {
+        padding: 40px;
+    }
+}
+.tile__footer-pad_top-none {
+    padding-top: 0;
+}
+
+.tile__footer_wrap {
+    padding: 15px;
+    @extend .tile--rounded_sm;
+} 
+
+@each $colorClass, $value in $mixClass-palette {
+    .tile-#{$colorClass} {
+        @extend .tile;
+        background-color: map-get($value, 'bg');
+		color: map-get($value, 'color');
+    }
+    .tile__footer-#{$colorClass} {
+        @extend .tile__footer;
+		background-color: map-get($value, 'bg');
+		color: map-get($value, 'color');
+	}
+    .tile__footer_wrap-#{$colorClass} {
+        @extend .tile__footer_wrap;
+		background-color: map-get($value, 'bg');
+		color: map-get($value, 'color');
+	}
+}

@@ -95,31 +95,13 @@
     .group_xs-1#{$size} {
         max-width: 350px;
     }
-}
 
-// Generate font size helpers
-@include group-modifiers();
-@include sm {
-  @include group-modifiers("--sm");
-}
-
-@include md {
-  @include group-modifiers("--md");
-}
-
-@include lg {
-  @include group-modifiers("--lg");
-}
-
-@include xl {
-  @include group-modifiers("--xl");
-}
-
-
-//gap
-@mixin group_spacing($size: "") {
+    //spacing
     .group_spacing-none#{$size} {
 		gap: 0;
+	}
+    .group_spacing-minimal#{$size} {
+		gap: 1px;
 	}
     .group_spacing-xxs#{$size} {
 		gap: 5px;
@@ -140,16 +122,21 @@
 		gap: 50px;
 	}
 }
-@include group_spacing();
+
+// Generate font size helpers
+@include group-modifiers();
 @include sm {
-	@include group_spacing("--sm");
+  @include group-modifiers("--sm");
 }
+
 @include md {
-	@include group_spacing("--md");
+  @include group-modifiers("--md");
 }
+
 @include lg {
-	@include group_spacing("--lg");
+  @include group-modifiers("--lg");
 }
+
 @include xl {
-	@include group_spacing("--xl");
+  @include group-modifiers("--xl");
 }
