@@ -95,62 +95,60 @@
 /////////////////////////////
 //colors
 //outline
-.btn--outline,
-%btn--outline{
+.btn_outline {
 	background-color: transparent;
 	&:hover{
 		color: $light-color;
 		border-color: transparent;
 	}
 }
-.btn--outline {
-	@extend %btn--outline;
-	border-color: $primary-color;
-	color: $primary-color;
-	&:hover {
-		background-color: $primary-color;
-	}
-}
 
 //link
-%btn--link {
+.btn_link {
 	background-color: transparent;
 	padding: 0;
 	display: inline-flex;
 	align-items: center;
 }
-.btn--link {
-	@extend %btn--link;
-	color: $primary-color;
-}
 
 //format color
 @each $colorClass, $value in $buttons-palette {
-	.btn--#{$colorClass} {
+	.btn_#{$colorClass} {
+		@extend .btn;
 		background-color: map-get($value, 'bg');
-		&, &:hover {
+		color: map-get($value, 'color');
+		&:hover {
 			color: $light-color;
-		}
-		&:hover {
 			background-color: map-get($value, 'hover');
 		}
 	}
-	.btn--outline-#{$colorClass} {
-		@extend %btn--outline;
+	.btn_outline-#{$colorClass} {
+		@extend .btn_outline;
 		border-color: map-get($value, 'bg');
-		&{
-			color: map-get($value, 'bg');
-		}
+		color: map-get($value, 'bg');
 		&:hover {
 			background-color: map-get($value, 'hover');
 		}
 	}
-	.btn--link-#{$colorClass} {
-		@extend %btn--link;
+	.btn_link-#{$colorClass} {
+		@extend .btn_link;
 		color: map-get($value, 'bg');
 		&.show,
 		&:hover {
 			color: map-get($value, 'hover');
+		}
+	}
+	.btn--hover-#{$colorClass} {
+		&.show,
+		&:hover {
+			background-color: map-get($value, 'bg');
+			color: map-get($value, 'color');
+		}
+	}
+	.btn--hover-color-#{$colorClass} {
+		&.show,
+		&:hover {
+			color: map-get($value, 'bg');
 		}
 	}
 }

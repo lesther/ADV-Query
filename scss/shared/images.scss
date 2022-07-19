@@ -1,2 +1,78 @@
 /////////////////////////////
 //images
+.full-image{
+	@include background(cover, center, no-repeat);
+}
+.full-image--overlay{
+	position: relative;
+	@include background(0px, 0 200%);
+	&:before{
+		content: "";
+		background-image: inherit;
+		@extend .full-image;
+		@include position(absolute, 0, null, 0, null, 100%, 100%);
+		z-index: 1;
+	}
+	> *{
+		position: relative;
+		z-index: 2;
+	}
+}
+.full-image--overlay-thin:before{
+	@include opacity(10)
+}
+.full-image--overlay-light:before{
+	@include opacity(20)
+}
+.full-image--overlay-medium:before{
+	@include opacity(50)
+}
+.full-image--overlay-hard:before{
+	@include opacity(70)
+}
+
+//profile
+.profile {
+	@extend .full-image;
+    @include corner(100%);
+    overflow: hidden;
+    height: 60px;
+    width: 60px;
+	border: 0px solid transparent;
+	position: relative;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	&:before {
+		content: "";
+		@include position(absolute, 0, 0, 0, 0, calc(100% - 4px), calc(100% - 4px));
+		border: 0 solid;
+		border-color: inherit;
+		margin: auto;
+		@include corner(100%);
+	}
+}
+
+.profile--offset {
+	margin-top: -50px;
+}
+
+.profile--bordered-md {
+	border-width: 5px;
+}
+
+.profile--bordered-sm {
+	border-width: 3px;
+}
+
+.profile--inner-bordered:before {
+	border-width: 1px;
+}
+
+/////////////////////////////
+//format
+@each $colorClass, $value in $colorClass-palette {
+	.profile--bordered-#{$colorClass} {
+		border-color: $value;
+	}
+}

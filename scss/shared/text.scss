@@ -131,33 +131,47 @@
 }
 
 //themes
-.highlight_text {
+.text_highlight {
 	padding: 5px 8px;
 	position: relative;
 	border: 0 solid transparent;
 	overflow: hidden;
+	z-index: 1;
+	border: 0px solid $gray-border-color;
 }
-.highlight_text--bordered {
+.text_highlight-bordered {
+	@extend .text_highlight;
 	border-width: 1px;
-	border-color: 1px;
 }
-.highlight_text:before {
-	content: "";
-	@include position(absolute, 0, null, 0, null, 100%, 100% );
-	@include opacity(10);
-	@include corner(3px);
-	padding: 0;
-	z-index: -1;
+.text_highlight-oval {
+	@extend .text_highlight;
+	padding: 8px 15px;
+	@include corner(40px);
+	display: inline-block;
+	width: auto;
+	&.group {
+		display: inline-flex;
+	}
 }
 
 //format color
 @each $colorClass, $value in $mixClass-palette {
-	.highlight_text-#{$colorClass} {
-		@extend .highlight_text;
+	.text_highlight-oval-#{$colorClass} {
+		@extend .text_highlight-oval;
 		border-color: map-get($value, 'bg');
 		color: map-get($value, 'bg');
+		background-color: rgba($color: map-get($value, 'bg'), $alpha: 0.1);
 	}
-	.highlight_text-#{$colorClass}:before {
-		background-color: map-get($value, 'bg');
+	.text_highlight-#{$colorClass} {
+		@extend .text_highlight;
+		border-color: map-get($value, 'bg');
+		color: map-get($value, 'bg');
+		background-color: rgba($color: map-get($value, 'bg'), $alpha: 0.1);
+
+	}
+}
+@each $colorClass, $value in $colorClass-palette {
+	.text_#{$colorClass} {
+		color: $value;
 	}
 }
