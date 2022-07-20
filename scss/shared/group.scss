@@ -169,5 +169,13 @@
 
 @include group-item();
 
+@include md{
+    @include group-item('--md');
+}
+
+@include lg{
+    @include group-item('--lg');
+}
+
 @include group-modifiers("--xl");
 

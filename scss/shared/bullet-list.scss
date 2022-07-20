@@ -17,6 +17,9 @@
     padding-left: 30px;
     counter-increment: li;
 }
+.bullet-list__item_spacing-md{
+    padding-left: 20px;
+}
 .bullet-list__item:before {
     content: "";
     @include corner(100%);
