@@ -348,6 +348,10 @@
 	color: $light-color;
 }
 
+.h-background-color-light{
+	background-color: $light-color;
+}
+
 .h-background-color-gray-accent{
 	background-color: $gray-color--accent;
 }
@@ -375,4 +379,30 @@
 
 .h-color-leading{
 	color: $leading-color;
+}
+
+.h-position-fixed{
+	position: fixed;
+}
+
+.h-right-none{
+	right: 0;
+}
+
+.h-bottom-none{
+	bottom: 0;
+}
+
+.h-inner-spacing-clear-bottom{
+	padding-bottom: 85px;
+}
+
+.h-inner-spacing-clear-bottom--lg{
+	@include lg{
+		padding-bottom: 85px;
+	}
+}
+
+.h-shadow-gray{
+	@include shadow(0px 0px 10px $gray-color);
 }

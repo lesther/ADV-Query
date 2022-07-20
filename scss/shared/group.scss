@@ -33,6 +33,9 @@
     .group_content-start#{$size} {
         justify-content: flex-start;
     }
+    .group_content-between#{$size} {
+        justify-content: space-between;
+    }
   
     //group align
     .group_align-center#{$size} {
@@ -164,6 +167,10 @@
     .group__item-lg#{$size} {
       flex: 1 0 0%;
       max-width: 360px;
+    }
+    .group__item-xl#{$size}{
+        flex: 1 0 0%;
+        max-width: 1200px;
     }
 }
 
