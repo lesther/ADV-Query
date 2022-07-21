@@ -98,10 +98,7 @@
     .group_xs-1#{$size} {
         max-width: 350px;
     }
-}
 
-//gap
-@mixin group_spacing($size: "") {
     //spacing
     .group_spacing-none#{$size} {
 		gap: 0;
@@ -128,7 +125,6 @@
 		gap: 50px;
 	}
 }
-@include group_spacing();
 
 // Generate font size helpers
 @include group-modifiers();
@@ -145,9 +141,10 @@
 }
 
 @include xl {
-	@include group_spacing("--xl");
+	@include group-modifiers("--xl");
 }
 
+//elliot
 @mixin group-item($size: '') {
     .group__item#{$size} {
       flex: 1 0 0%;

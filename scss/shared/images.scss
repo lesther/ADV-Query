@@ -70,9 +70,84 @@
 }
 
 /////////////////////////////
+//icons
+.icon-group-container {
+	position: relative;
+}
+.icon-group__item {
+	display: block;
+	@include transition(0.3s);
+}
+.icon-group__item-display {
+	display: block;
+	@include transition(0.3s);
+	@include opacity(0);
+	@include position(absolute, 0, null, 0 , 100%, 100%);
+	@include transform(scale(0));
+	z-index: 1;
+}
+.icon-group-hover:hover .icon-group__item-display {
+	@include transform(scale(1));
+	@include opacity(100);
+}
+.icon-group-hover:hover .icon-group__item:not(.icon-group__item-display) {
+	@include transform(scale(0));
+	@include opacity(0);
+}
+
+//status point
+.status-view {
+	position: relative;
+}
+.status-view:before {
+	content: "";
+	@include position(absolute, -1px, null, -4px, null, 10px, 10px);
+	@include corner(100%);
+	@include transition(0.3s);
+	border: 2px solid transparent;
+	z-index: 2;
+}
+.status-view:after {
+	content: "";
+	@include position(absolute, -1px, null, -4px, null, 10px, 10px);
+	@include corner(100%);
+	@include transition(0.3s);
+	border: 2px solid transparent;
+	animation: pulse 1.5s infinite ease-in;
+}
+
+@keyframes pulse {
+	from {
+	  transform: scale(0.5);
+	  opacity: 1;
+	}
+  
+	to {
+	  transform: scale(2);
+	  opacity: 0;
+	}
+  }
+
+
+/////////////////////////////
 //format
 @each $colorClass, $value in $colorClass-palette {
 	.profile--bordered-#{$colorClass} {
 		border-color: $value;
+	}
+	.status-view[data-status="#{$colorClass}"]:before {
+		background-color: $value;
+		border-color: $light-color;
+	}
+	.status-view[data-status="#{$colorClass}"]:after {
+		background-color: $value;
+		border-color: transparent;
+	}
+}
+
+@each $colorClass, $value in $mixClass-palette {
+	.status-view[data-status="#{$colorClass}"] {
+		background-color: map-get($value, 'bg');
+		color: map-get($value, 'color');
 	}
 }

@@ -122,17 +122,28 @@
 	}
 }
 
+.title_letter_profile--xs {
+	width: 30px;
+	height: 30px;
+	&::first-letter {
+		@extend .title_xs;
+		font-weight: bold;
+		line-height: 30px;
+	}
+}
+
 /////////////////////////////
 //colors
 //format
 @each $colorClass, $value in $mixClass-palette {
-	.title--#{$colorClass} {
-		background-color: map-get($value, 'bg');
-		color: map-get($value, 'color');
-	}
 	.title_letter_profile-#{$colorClass} {
 		@extend .title_letter_profile;
 		background-color: map-get($value, 'bg');
 		color: map-get($value, 'color');
+	}
+}
+@each $colorClass, $value in $colorClass-palette {
+	.title--#{$colorClass} {
+		color: $value;
 	}
 }
