@@ -80,6 +80,6 @@
 @each $colorClass, $value in $colorClass-palette {
 	.chart-pie__label-#{$colorClass} {
         @extend .chart-pie__label;
-		color: $value;
+		color: $value; 
 	}
 }
