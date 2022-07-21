@@ -165,9 +165,14 @@
 	.text_highlight-#{$colorClass} {
 		@extend .text_highlight;
 		border-color: map-get($value, 'bg');
-		color: map-get($value, 'bg');
 		background-color: rgba($color: map-get($value, 'bg'), $alpha: 0.1);
-
+		color: map-get($value, 'bg');
+	}
+	.text_highlight-#{$colorClass}-solid {
+		@extend .text_highlight;
+		border-color: map-get($value, 'bg');
+		background-color: map-get($value, 'bg');
+		color: map-get($value, 'color');
 	}
 }
 @each $colorClass, $value in $colorClass-palette {
@@ -176,6 +181,8 @@
 	}
 }
 
+
+//elliot
 .h-text-link-tab-active{
 	&::after{
 		content: '';

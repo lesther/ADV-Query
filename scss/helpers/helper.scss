@@ -40,9 +40,6 @@
 	.h-spacing-sm#{$size} {
 		margin: 10px;
 	}
-	.h-spacing-left-sm#{$size}{
-		margin-left: 10px;
-	}
 	.h-spacing-md#{$size} {
 		margin: 15px;
 	}
@@ -121,8 +118,49 @@
 	.h-spacing-bottom-xxl#{$size} {
 		margin-bottom: 40px;
 	}
+
 	.h-spacing-bottom-none#{$size}{
 		margin-bottom: 0;
+	}
+
+	//left
+	.h-spacing-left-xs#{$size} {
+		margin-left: 5px;
+	}
+	.h-spacing-left-sm#{$size} {
+		margin-left: 10px;
+	}
+	.h-spacing-left-md#{$size} {
+		margin-left: 15px;
+	}
+	.h-spacing-left-lg#{$size} {
+		margin-left: 20px;
+	}
+	.h-spacing-left-xl#{$size} {
+		margin-left: 30px;
+	}
+	.h-spacing-left-xxl#{$size} {
+		margin-bottom: 40px;
+	}
+
+	//right
+	.h-spacing-right-xs#{$size} {
+		margin-right: 5px;
+	}
+	.h-spacing-right-sm#{$size} {
+		margin-right: 10px;
+	}
+	.h-spacing-right-md#{$size} {
+		margin-right: 15px;
+	}
+	.h-spacing-right-lg#{$size} {
+		margin-right: 20px;
+	}
+	.h-spacing-right-xl#{$size} {
+		margin-right: 30px;
+	}
+	.h-spacing-right-xxl#{$size} {
+		margin-right: 40px;
 	}
 }
 
@@ -141,10 +179,6 @@
 	@include h-spacing-atr("--xl");
 }
 
-.h-spacing-vertical-none{
-	margin-top: 0;
-	margin-bottom: 0;
-}
 
 //width
 .h-width-100 {
@@ -152,6 +186,10 @@
 }
 
 //elliot
+.h-spacing-vertical-none{
+	margin-top: 0;
+	margin-bottom: 0;
+}
 .h-inner-spacing-right-xs{
 	padding-right: 10px;
 }
