@@ -111,6 +111,17 @@
 	align-items: center;
 }
 
+.btn_link-svg{
+	@extend .btn_link;
+	&__fill{
+		fill: $disabled-color;
+	}
+
+	&:hover &__fill{
+		fill: $leading-color;
+	}
+}
+
 //format color
 @each $colorClass, $value in $buttons-palette {
 	.btn_#{$colorClass} {

@@ -2052,7 +2052,7 @@ items
   border-color: transparent;
 }
 
-.btn_link, .btn_link-warning, .btn_link-danger, .btn_link-success, .btn_link-secondary, .btn_link-primary, .btn_link-leading, .btn_link-gray, .btn_link-dark, .btn_link-light {
+.btn_link, .btn_link-warning, .btn_link-danger, .btn_link-success, .btn_link-secondary, .btn_link-primary, .btn_link-leading, .btn_link-gray, .btn_link-dark, .btn_link-light, .btn_link-svg {
   background-color: transparent;
   padding: 0;
   display: -webkit-inline-box;
@@ -2061,6 +2061,13 @@ items
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.btn_link-svg__fill {
+  fill: #bdbdbd;
+}
+.btn_link-svg:hover .btn_link-svg__fill {
+  fill: #0054dc;
 }
 
 .btn_light {
@@ -5128,6 +5135,10 @@ td:before {
   margin-bottom: 40px;
 }
 
+.h-spacing-bottom-none {
+  margin-bottom: 0;
+}
+
 @media (min-width: 576px) {
   .h-spacing-none--sm {
     margin: 0;
@@ -5237,6 +5248,10 @@ td:before {
 
   .h-spacing-bottom-xxl--sm {
     margin-bottom: 40px;
+  }
+
+  .h-spacing-bottom-none--sm {
+    margin-bottom: 0;
   }
 }
 @media (min-width: 768px) {
@@ -5349,6 +5364,10 @@ td:before {
   .h-spacing-bottom-xxl--md {
     margin-bottom: 40px;
   }
+
+  .h-spacing-bottom-none--md {
+    margin-bottom: 0;
+  }
 }
 @media (min-width: 992px) {
   .h-spacing-none--lg {
@@ -5459,6 +5478,10 @@ td:before {
 
   .h-spacing-bottom-xxl--lg {
     margin-bottom: 40px;
+  }
+
+  .h-spacing-bottom-none--lg {
+    margin-bottom: 0;
   }
 }
 @media (min-width: 1200px) {
@@ -5571,6 +5594,10 @@ td:before {
   .h-spacing-bottom-xxl--xl {
     margin-bottom: 40px;
   }
+
+  .h-spacing-bottom-none--xl {
+    margin-bottom: 0;
+  }
 }
 .h-spacing-vertical-none {
   margin-top: 0;
@@ -5622,6 +5649,15 @@ td:before {
   padding-bottom: 15px;
 }
 
+.h-inner-spacing-top-md-fluid {
+  padding-top: 15px;
+}
+@media (min-width: 768px) {
+  .h-inner-spacing-top-md-fluid {
+    padding-top: 0;
+  }
+}
+
 .h-font-weight-bold {
   font-weight: bold;
 }
@@ -5640,6 +5676,12 @@ td:before {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.h-justify-content-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .h-align-self-end {
@@ -5828,6 +5870,23 @@ td:before {
 
 @media (min-width: 992px) {
   .h-hide--lg {
+    display: none;
+  }
+}
+
+.h-show--sm {
+  display: none;
+}
+@media (min-width: 768px) {
+  .h-show--sm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) {
+  .h-hide--sm {
     display: none;
   }
 }

@@ -121,6 +121,9 @@
 	.h-spacing-bottom-xxl#{$size} {
 		margin-bottom: 40px;
 	}
+	.h-spacing-bottom-none#{$size}{
+		margin-bottom: 0;
+	}
 }
 
 // Generate
@@ -189,6 +192,13 @@
 	padding-bottom: 15px;
 }
 
+.h-inner-spacing-top-md-fluid{
+	padding-top: 15px;
+	@include md{
+		padding-top: 0;
+	}
+}
+
 .h-font-weight-bold{
 	font-weight: bold;
 }
@@ -203,6 +213,10 @@
 
 .h-justify-content-between{
 	justify-content: space-between;
+}
+
+.h-justify-content-center{
+	justify-content: center;
 }
 
 .h-align-self-end{
@@ -377,6 +391,19 @@
 	}
 }
 
+.h-show--sm{
+	display: none;
+	@include md{
+		display: flex;
+	}
+}
+
+.h-hide--sm{
+	@include md{
+		display: none;
+	}
+}
+
 .h-color-leading{
 	color: $leading-color;
 }
@@ -392,7 +419,6 @@
 .h-bottom-none{
 	bottom: 0;
 }
-
 .h-inner-spacing-clear-bottom{
 	padding-bottom: 85px;
 }
