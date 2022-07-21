@@ -15,7 +15,7 @@ $danger-color--accent: #ff195b;
 $warning-color: #ffd900;
 $warning-color--accent: #ffc400;
 $success-color: #59bb00;
-$success-color--accent: #8dd14f;
+$success-color--accent: #a8ec68;
 $success-dark-color: #20a500;
 $leading-color: #0054dc;
 $primary-color: #00c2ff;
@@ -77,5 +77,20 @@ $buttons-palette: (
   "success": ( bg: $success-color, hover: $success-color--accent, color: $light-color ),
   "danger": ( bg: $danger-color, hover: $danger-color--accent, color: $light-color ),
   "warning": ( bg: $warning-color, hover: $warning-color--accent, color: $light-color )
+) !default;
+
+$chartPie-palette: (
+	"light": ( start-color: $light-color, end-color: $light-color, fill-color: rgba($color: $light-color, $alpha: 0.1) ),
+	"dark": ( start-color: $dark-color, end-color: $dark-color--accent, fill-color: rgba($color: $light-color, $alpha: 0.1) ),
+	"gray": ( start-color: $gray-color, end-color: $lighter-color, fill-color: $lighter-color ),
+	"leading": ( start-color: $leading-color, end-color: $primary-color, fill-color: $lighter-color ),
+	"primary": ( start-color: $primary-color, end-color: $primary-color--accent, fill-color: $lighter-color ),
+	"primary-accent": ( start-color: $primary-color--accent, end-color: $primary-color, fill-color: $lighter-color ),
+	"secondary": ( start-color: $secondary-color, end-color:  $secondary-color--accent, fill-color: $lighter-color ),
+	"secondary-accent": ( start-color: $secondary-color--accent, end-color:$secondary-color, fill-color: $lighter-color ),
+	"success": ( start-color: $success-color, end-color: $success-color--accent, fill-color: $lighter-color ),
+	"danger": ( start-color: $danger-color, end-color: $danger-color--accent, fill-color: $lighter-color ),
+	"warning": ( start-color: $warning-color, end-color: $warning-color--accent, fill-color: $lighter-color ),
+	"lighter": ( start-color: $lighter-color, end-color: $gray-color, fill-color: rgba($color: $light-color, $alpha: 0.1) )
 ) !default;
 

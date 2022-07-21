@@ -24,10 +24,16 @@
 //header
 .tile__header {
     padding: 20px;
+    @include md {
+        padding: 20px 40px;
+    }
 }
-.tile__header--primary {
-    background-color: $primary-color;
-    color: $light-color;
+.tile__headline {
+    margin: 4px;
+    padding: 10px;
+    @include md {
+        padding: 10px 40px;
+    }
 }
 
 //body
@@ -35,6 +41,12 @@
     padding: 20px;
     @include md {
         padding: 40px
+    }
+}
+.tile__body--sm {
+    padding: 20px;
+    @include md {
+        padding: 20px 40px
     }
 }
 
@@ -54,6 +66,16 @@
 } 
 
 @each $colorClass, $value in $mixClass-palette {
+    .tile__headline-#{$colorClass} {
+        @extend .tile__headline;
+        background-color: map-get($value, 'bg');
+		color: map-get($value, 'color');
+    }
+    .tile__header-#{$colorClass} {
+        @extend .tile__header;
+        background-color: map-get($value, 'bg');
+		color: map-get($value, 'color');
+    }
     .tile-#{$colorClass} {
         @extend .tile;
         background-color: map-get($value, 'bg');
