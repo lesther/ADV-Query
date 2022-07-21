@@ -33,6 +33,9 @@
     .group_content-start#{$size} {
         justify-content: flex-start;
     }
+    .group_content-between#{$size} {
+        justify-content: space-between;
+    }
   
     //group align
     .group_align-center#{$size} {
@@ -138,5 +141,45 @@
 }
 
 @include xl {
-  @include group-modifiers("--xl");
+	@include group-modifiers("--xl");
 }
+
+//elliot
+@mixin group-item($size: '') {
+    .group__item#{$size} {
+      flex: 1 0 0%;
+    }
+    .group__item-auto#{$size} {
+      width: auto;
+      flex: initial;
+    }
+    .group__item-sm#{$size} {
+      flex: 1 0 0%;
+      max-width: 250px;
+    }
+    .group__item-md#{$size} {
+      flex: 1 0 0%;
+      max-width: 320px;
+    }
+    .group__item-lg#{$size} {
+      flex: 1 0 0%;
+      max-width: 360px;
+    }
+    .group__item-xl#{$size}{
+        flex: 1 0 0%;
+        max-width: 1200px;
+    }
+}
+
+@include group-item();
+
+@include md{
+    @include group-item('--md');
+}
+
+@include lg{
+    @include group-item('--lg');
+}
+
+@include group-modifiers("--xl");
+

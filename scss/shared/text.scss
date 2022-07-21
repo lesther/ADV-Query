@@ -180,3 +180,23 @@
 		color: $value;
 	}
 }
+
+
+//elliot
+.h-text-link-tab-active{
+	&::after{
+		content: '';
+		display: block;
+		height: 3px;
+		background-color: $leading-color;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	&_spacing::after{
+		left: 5px;
+		right: 5px;
+	}
+}
