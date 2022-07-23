@@ -152,3 +152,15 @@
 		}
 	}
 }
+
+//elliot
+.btn_link-svg{
+	@extend .btn_link;
+	&__fill{
+		fill: $disabled-color;
+	}
+
+	&:hover &__fill{
+		fill: $leading-color;
+	}
+}
