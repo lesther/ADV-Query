@@ -76,10 +76,15 @@
         background-color: map-get($value, 'bg');
 		color: map-get($value, 'color');
     }
-    .tile-#{$colorClass} {
+    .tile_#{$colorClass} {
         @extend .tile;
         background-color: map-get($value, 'bg');
 		color: map-get($value, 'color');
+    }
+    .tile_highlight-#{$colorClass} {
+        @extend .tile;
+        background-color: rgba($color: map-get($value, 'bg'), $alpha: 0.1);
+		color: map-get($value, 'bg');
     }
     .tile__footer-#{$colorClass} {
         @extend .tile__footer;
