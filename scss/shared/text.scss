@@ -132,6 +132,7 @@
 
 //themes
 .text_highlight {
+	@extend .title;
 	padding: 5px 8px;
 	position: relative;
 	border: 0 solid transparent;
@@ -177,6 +178,7 @@
 }
 @each $colorClass, $value in $colorClass-palette {
 	.text_#{$colorClass} {
+		@extend .text;
 		color: $value;
 	}
 }

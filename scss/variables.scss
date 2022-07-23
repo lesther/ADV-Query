@@ -81,7 +81,7 @@ $buttons-palette: (
 
 $chartPie-palette: (
 	"light": ( start-color: $light-color, end-color: $light-color, fill-color: rgba($color: $light-color, $alpha: 0.1) ),
-	"dark": ( start-color: $dark-color, end-color: $dark-color--accent, fill-color: rgba($color: $light-color, $alpha: 0.1) ),
+	"dark": ( start-color: $gray-color, end-color: $dark-color, fill-color: rgba($color: $light-color, $alpha: 0.1) ),
 	"gray": ( start-color: $gray-color, end-color: $lighter-color, fill-color: $lighter-color ),
 	"leading": ( start-color: $leading-color, end-color: $primary-color, fill-color: $lighter-color ),
 	"primary": ( start-color: $primary-color, end-color: $primary-color--accent, fill-color: $lighter-color ),

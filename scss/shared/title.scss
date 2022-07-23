@@ -105,6 +105,24 @@
 	@include title-atr("--xl");
 }
 
+//weight
+.title_weight {
+	&-thin {
+		font-weight: 300;
+	}
+	&-regular {
+		font-weight: 300;
+	}
+	&-semi-bold {
+		font-weight: 600;
+	}
+	&-bold {
+		font-weight: 700;
+	}
+	&-black {
+		font-weight: 900;
+	}
+}
 //themes
 .title_letter_profile {
 	width: 35px;
@@ -143,7 +161,8 @@
 	}
 }
 @each $colorClass, $value in $colorClass-palette {
-	.title--#{$colorClass} {
+	.title_#{$colorClass} {
+		@extend .title;
 		color: $value;
 	}
 }

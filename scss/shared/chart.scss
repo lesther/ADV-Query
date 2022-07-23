@@ -1,10 +1,20 @@
 //chart pie
-.chart-pie {
+.chart_pie {
     position: relative;
     height: 100px;
     width: 100px;
 }
-.chart-pie__label {
+.chart_pie-md {
+    position: relative;
+    height: 150px;
+    width: 150px;
+}
+.chart_pie-lg {
+    position: relative;
+    height: 200px;
+    width: 200px;
+}
+.chart_pie__label {
     @include position(absolute, 0, 0, 0, 0,  100%,  100%);
     @include corner(100%);
     text-align: center;
@@ -16,7 +26,7 @@
     align-items: center;
     align-content: stretch;
 }
-.chart-pie__svg {
+.chart_pie__svg {
     width: 100%;
     margin: 0 auto;
     @include transform(rotate(-90deg));
@@ -24,18 +34,17 @@
     @include transition(0.3s);
     display: block;
 }
-.chart-pie__svg stop {
+.chart_pie__svg stop {
     @include transition(0.3s);
 }
-.chart-pie__svg-data {
+.chart_pie__svg-data {
     fill: none;
     stroke-dasharray: 0 100;
     stroke-width: 2;
     stroke-miterlimit: 10;
-    stroke: url(#chart-pie-bg);
     @include transition(0.3s);
 }
-.chart-pie__svg-fill {
+.chart_pie__svg-fill {
     fill: none;
     stroke-dasharray: 100 100;
     stroke-width: 2;
@@ -44,19 +53,19 @@
     @include transition(0.3s);
 }
 //thin
-.chart-pie__svg--thin .chart-pie__svg-data
-.chart-pie__svg--thin .chart-pie__svg-fill {
+.chart_pie__svg--thin .chart_pie__svg-data
+.chart_pie__svg--thin .chart_pie__svg-fill {
     stroke-width: 1.2;
     stroke-width: 1.2;
 }
 //medium
-.chart-pie__svg--medium .chart-pie__svg-data,
-.chart-pie__svg--medium .chart-pie__svg-fill {
+.chart_pie__svg--medium .chart_pie__svg-data,
+.chart_pie__svg--medium .chart_pie__svg-fill {
     stroke-width: 4;
 }
 //wide
-.chart-pie__svg--wide .chart-pie__svg-data,
-.chart-pie__svg--wide .chart-pie__svg-fill {
+.chart_pie__svg--wide .chart_pie__svg-data,
+.chart_pie__svg--wide .chart_pie__svg-fill {
     stroke-width: 8;
 }
 
@@ -64,22 +73,26 @@
 // color
 //format
 @each $colorClass, $value in $chartPie-palette {
-	.chart-pie__svg--#{$colorClass} .chart-pie__svg-start-color {
+    .chart_pie__svg--#{$colorClass} .chart_pie__svg-start-color {
 		stop-color: map-get($value, 'start-color');
 	}
-    .chart-pie__svg--#{$colorClass} .chart-pie__svg-end-color {
+    .chart_pie__svg--#{$colorClass} .chart_pie__svg-end-color {
 		stop-color: map-get($value, 'end-color');
 	}
-    .chart-pie__svg--#{$colorClass} .chart-pie__svg-fill {
+    .chart_pie__svg--#{$colorClass} .chart_pie__svg-fill {
         stroke:  map-get($value, 'fill-color');
     }
-/*     .chart-pie__svg-data {
-        stroke: url(#chart-pie-bg);
-    } */
+    .chart_pie__svg--#{$colorClass} ~ .chart_pie__label {
+        color:  map-get($value, 'start-color');
+    }
+    .chart_pie__svg-data-#{$colorClass} {
+        @extend .chart_pie__svg-data;
+        stroke: url(#chart_pie-#{$colorClass});
+    }
 }
 @each $colorClass, $value in $colorClass-palette {
-	.chart-pie__label-#{$colorClass} {
-        @extend .chart-pie__label;
+	.chart_pie__label-#{$colorClass} {
+        @extend .chart_pie__label;
 		color: $value; 
 	}
 }
