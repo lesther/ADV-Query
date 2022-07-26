@@ -43,6 +43,9 @@
         padding: 40px
     }
 }
+.tile__body--xs {
+    padding: 10px;
+}
 .tile__body--sm {
     padding: 20px;
     @include md {

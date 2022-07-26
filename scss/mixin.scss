@@ -134,7 +134,7 @@ $sizes: "", "--sm", "--md", "--lg", "--xl";
 	-moz-backface-visibility: hidden;
 	-ms-backface-visibility: hidden;
 }
-@mixin position($posValue, $ptpValue:null, $btfValue:null, $plfValue:null, $prtValue:null, $widthValue:null, $heightValue:null)  {
+@mixin position($posValue, $ptpValue:null, $btfValue:null, $plfValue:null, $prtValue:null, $widthValue:null, $heightValue:null) {
 	position: $posValue;
 	top: $ptpValue;
 	bottom: $btfValue;
@@ -160,9 +160,27 @@ $sizes: "", "--sm", "--md", "--lg", "--xl";
 }
 
 // placeholder
-@mixin placeholder {
-	color: $light-color;
-	font-weight: 300;
+@mixin placeholder($colorPh, $colorAlphaPh, $weightPh:null) {
+	&::-webkit-input-placeholder {
+		color: rgba($color: $colorPh, $alpha: $colorAlphaPh);
+		font-weight: $weightPh;
+		@include transition(0.3s);
+	}
+	&::-moz-placeholder {
+		color: rgba($color: $colorPh, $alpha: $colorAlphaPh);
+		font-weight: $weightPh;
+		@include transition(0.3s);
+	}
+	&:-ms-input-placeholder {
+		color: rgba($color: $colorPh, $alpha: $colorAlphaPh);
+		font-weight: $weightPh;
+		@include transition(0.3s);
+	}
+	&:-moz-placeholder {
+		color: rgba($color: $colorPh, $alpha: $colorAlphaPh);
+		font-weight: $weightPh;
+		@include transition(0.3s);
+	}
 }
 
 // truncate

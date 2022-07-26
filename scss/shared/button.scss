@@ -1,7 +1,7 @@
 /////////////////////////////
 //buttons
 .btn {
-	padding: 5px 10px;
+	padding: 10px 15px;
 	background-color: $primary-color;
 	color: $light-color;
 	border: 1px solid transparent;
@@ -9,7 +9,9 @@
 	font-weight: inherit;
 	text-align: inherit;
 	@include transition(0.3s);
+	@include corner(5px);
 	&:active,
+	&.active,
 	&:focus {
 		border-width: 1px;
 		@include shadow(none)
@@ -28,7 +30,7 @@
 	@extend .text_md;
 }
 .btn--lg {
-	padding: 10px 20px;
+	padding: 10px 25px;
 	@extend .text_lg;
 }
 .btn--xl {
@@ -41,11 +43,15 @@
 	display: block;
     width: 100%;
 }
+.btn--full {
+    width: 100%;
+}
 //rounded
 .btn--oval {
 	@include corner(10rem);
-	padding-left: 20px;
-	padding-right: 20px;
+}
+.btn--corner-none {
+	@include corner(0);
 }
 .btn--circle {
 	position: relative;
@@ -117,6 +123,7 @@
 		@extend .btn;
 		background-color: map-get($value, 'bg');
 		color: map-get($value, 'color');
+		&.active,
 		&:hover {
 			color: $light-color;
 			background-color: map-get($value, 'hover');
@@ -126,6 +133,7 @@
 		@extend .btn_outline;
 		border-color: map-get($value, 'bg');
 		color: map-get($value, 'bg');
+		&.active,
 		&:hover {
 			background-color: map-get($value, 'hover');
 		}
@@ -134,12 +142,14 @@
 		@extend .btn_link;
 		color: map-get($value, 'bg');
 		&.show,
+		&.active,
 		&:hover {
 			color: map-get($value, 'hover');
 		}
 	}
 	.btn--hover-#{$colorClass} {
 		&.show,
+		&.active,
 		&:hover {
 			background-color: map-get($value, 'bg');
 			color: map-get($value, 'color');
@@ -147,10 +157,16 @@
 	}
 	.btn--hover-color-#{$colorClass} {
 		&.show,
+		&.active,
 		&:hover {
 			color: map-get($value, 'bg');
 		}
 	}
+}
+//lighter
+.btn_lighter.active, 
+.btn_lighter:hover {
+	color: $primary-color;
 }
 
 //elliot
