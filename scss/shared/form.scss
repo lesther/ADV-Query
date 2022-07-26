@@ -96,6 +96,7 @@
 		border-color: map-get($value, 'bg');
     	background-color: rgba($color: map-get($value, 'bg'), $alpha: 0.07);
         color: map-get($value, 'bg');
+        color: map-get($value, 'input-color');
         &:focus:not(.disabled){
             background-color: $light-color;
             @include shadow(0 0 0 0.25rem rgba($color: map-get($value, 'bg'), $alpha: 0.15))
@@ -105,18 +106,15 @@
         @extend .text_field;
     	background-color: rgba($color: map-get($value, 'bg'), $alpha: 0.07);
         color: map-get($value, 'bg');
+        color: map-get($value, 'input-color');
         &:focus:not(.disabled){
             background-color: $light-color;
             border-color: map-get($value, 'bg');
-            @include shadow(0 0 0 0.25rem rgba($color: map-get($value, 'bg'), $alpha: 0.15))
+            @include shadow(0 0 0 0.25rem rgba($color: map-get($value, 'bg'), $alpha: 0.15));
+			color: map-get($value, 'color');
         }
 	}
 }
-//light
-.text_field-light {
-    color: $dark-color;
-}
-
 
 //icon wrap
 .text_field-wrap {

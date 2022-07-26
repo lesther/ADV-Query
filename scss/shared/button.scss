@@ -24,18 +24,22 @@
 //size
 .btn--sm {
 	@extend .text_sm;
+	line-height: 1;
 }
 .btn--md {
 	padding: 10px 20px;
 	@extend .text_md;
+	line-height: 1.2;
 }
 .btn--lg {
 	padding: 10px 25px;
 	@extend .text_lg;
+	line-height: 1.2;
 }
 .btn--xl {
 	padding: 15px 30px;
 	@extend .text_lg;
+	line-height: 1.1;
 }
 //full
 .btn--block {
@@ -125,7 +129,7 @@
 		color: map-get($value, 'color');
 		&.active,
 		&:hover {
-			color: $light-color;
+			color: map-get($value, 'color');
 			background-color: map-get($value, 'hover');
 		}
 	}
@@ -164,10 +168,10 @@
 	}
 }
 //lighter
-.btn_lighter.active, 
+/* .btn_lighter.active, 
 .btn_lighter:hover {
 	color: $primary-color;
-}
+} */
 
 //elliot
 .btn_link-svg{

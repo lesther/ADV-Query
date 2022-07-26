@@ -86,10 +86,14 @@
 	@include transform(scale(0));
 	z-index: 1;
 }
+.icon-group-hover *:focus ~ * .icon-group__item-display,
+.icon-group-hover.active .icon-group__item-display,
 .icon-group-hover:hover .icon-group__item-display {
 	@include transform(scale(1));
 	@include opacity(100);
 }
+.icon-group-hover *:focus ~ * .icon-group__item:not(.icon-group__item-display),
+.icon-group-hover.active .icon-group__item:not(.icon-group__item-display),
 .icon-group-hover:hover .icon-group__item:not(.icon-group__item-display) {
 	@include transform(scale(0));
 	@include opacity(0);

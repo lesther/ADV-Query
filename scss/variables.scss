@@ -15,8 +15,7 @@ $danger-color--accent: #ff195b;
 $warning-color: #ffd900;
 $warning-color--accent: #ffc400;
 $success-color: #59bb00;
-$success-color--accent: #a8ec68;
-$success-dark-color: #20a500;
+$success-color--accent: #20a500;
 $leading-color: #0054dc;
 $primary-color: #00c2ff;
 $primary-color--accent: #007aff;
@@ -53,6 +52,9 @@ $colorClass-palette: (
 
 $mixClass-palette: (
 	"light": ( bg: $light-color, color: inherit ),
+	"light-2": ( bg: $light-color, input-color: inherit, color: inherit ),
+	"lighter": ( bg: $lighter-color, color: inherit ),
+	"lighter-2": ( bg: $lighter-color, input-color: inherit, color: inherit ),
 	"dark": ( bg: $dark-color, color: $light-color ),
 	"gray": ( bg: $gray-color, color: inherit ),
 	"leading": ( bg: $leading-color, color: $light-color ),
@@ -63,8 +65,7 @@ $mixClass-palette: (
 	"success": ( bg: $success-color, color: $light-color ),
 	"danger": ( bg: $danger-color, color: $light-color ),
 	"disabled": ( bg: $disabled-color, color: $light-color ),
-	"warning": ( bg: $warning-color, color: $light-color ),
-	"lighter": ( bg: $lighter-color, color: inherit )
+	"warning": ( bg: $warning-color, color: $light-color )
 ) !default;
 
 $buttons-palette: (
