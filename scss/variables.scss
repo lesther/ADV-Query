@@ -69,6 +69,7 @@ $mixClass-palette: (
 
 $buttons-palette: (
   "light": ( bg: $light-color, hover: $primary-color, color: inherit ),
+  "lighter": ( bg: $lighter-color, hover: $light-color, color: inherit ),
   "dark": ( bg: $dark-color, hover: $dark-color--accent, color: $light-color ),
   "gray": ( bg: $gray-color, hover: $gray-color--accent, color: $light-color ),
   "leading": ( bg: $leading-color, hover: $primary-color--accent, color: $light-color ),

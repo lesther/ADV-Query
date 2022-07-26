@@ -1,2 +1,161 @@
 /////////////////////////////
 // form
+//text_field
+.text_field {
+	padding: 12px 20px;
+	border: 1px solid transparent;
+	background-color: rgba($color: $dark-color, $alpha: 0.05);
+	@include corner(5px);
+	@include transition(0.3s);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+    @include placeholder($dark-color, 0.4, 300);
+	&:active,
+	&:focus,
+	&:focus-visible{
+		outline: none !important;
+	}
+    &:focus:not(.disabled) {
+        @include placeholder($dark-color, 0.7, 300);
+        background-color: $light-color;
+        border-color: rgba($color: $primary-color, $alpha: 1);
+        @include shadow(0 0 0 0.25rem rgba($color: $primary-color, $alpha: 0.15))
+    }
+}
+.text_field--outline {
+    border-color: $gray-border-color;
+}
+.text_field--block {
+    width: 100%;
+}
+.text_field--corner-none {
+    @include corner(0);
+}
+.text_field--oval {
+    @include corner(10rem);
+}
+.text_field-light {
+    color: $primary-color;
+}
+//sizes
+.text_field--sm {
+    padding: 5px 10px;
+    @extend .text_sm;
+}
+.text_field--md {
+    padding: 15px 10px;
+    @extend .text_md;
+}
+.text_field--lg{
+    padding: 15px 25px;
+    @extend .text_lg;
+}
+.text_field--xl{
+    padding: 15px 25px;
+    @extend .text_xl;
+}
+//date
+.text_field[type="date"] {
+	padding: 6px 20px;
+	&::-webkit-inner-spin-button {
+		opacity: 0;
+		cursor: pointer;
+	}
+	&::-webkit-calendar-picker-indicator {
+		cursor: pointer;
+		padding: 5px;
+		height: 20px;
+		width: 20px;
+		margin-left: 10px;
+		margin-right: -10px;
+		background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iIzAwYzJmZiIgZD0iTTE3IDEyaC01djVoNXYtNXpNMTYgMXYySDhWMUg2djJINWMtMS4xMSAwLTEuOTkuOS0xLjk5IDJMMyAxOWMwIDEuMS44OSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMlY1YzAtMS4xLS45LTItMi0yaC0xVjFoLTJ6bTMgMThINVY4aDE0djExeiIvPjwvc3ZnPg==");
+		background-color: rgba($color: $primary-color, $alpha: 0);
+		@include corner(100%);
+		@include transition(0.3s);
+		z-index: 99;
+	}
+}
+//select
+.text_field-select{
+    @extend .text_field;
+	padding-right: 20px;
+	cursor: pointer;
+	&__arrow{
+		pointer-events: none;
+	}
+	&:focus:hover ~ .text_field-select__arrow{
+		@include transform(rotate(180deg));
+	}
+}
+
+/////////////////////////////
+// color
+//format
+@each $colorClass, $value in $mixClass-palette {
+	.text_field--outline-#{$colorClass} {
+		border-color: map-get($value, 'bg');
+    	background-color: rgba($color: map-get($value, 'bg'), $alpha: 0.07);
+        color: map-get($value, 'bg');
+        &:focus:not(.disabled){
+            background-color: $light-color;
+            @include shadow(0 0 0 0.25rem rgba($color: map-get($value, 'bg'), $alpha: 0.15))
+        }
+	}
+    .text_field-#{$colorClass} {
+        @extend .text_field;
+    	background-color: rgba($color: map-get($value, 'bg'), $alpha: 0.07);
+        color: map-get($value, 'bg');
+        &:focus:not(.disabled){
+            background-color: $light-color;
+            border-color: map-get($value, 'bg');
+            @include shadow(0 0 0 0.25rem rgba($color: map-get($value, 'bg'), $alpha: 0.15))
+        }
+	}
+}
+//light
+.text_field-light {
+    color: $dark-color;
+}
+
+
+//icon wrap
+.text_field-wrap {
+	position: relative;
+	.text_field{
+		padding-right: 40px;
+	}
+	&__item{
+		width: 28px;
+		height: 28px;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 10px;
+		margin: auto;
+		@include transition(0.3s);
+	}
+	&__circle{
+		@include corner(200%);
+	}
+	&__icon{
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		margin: auto;
+		width: 16px;
+		height: 16px;
+		color: $primary-color;
+		text-align: center;
+		line-height: 16px !important;
+		@include background(cover);
+		@extend .text_sm;
+	}
+}
+.text_field-wrap__circle {
+	&_active,
+	&:hover{
+		background-color: rgba($color: $primary-color, $alpha: 0.15);
+	}
+}
