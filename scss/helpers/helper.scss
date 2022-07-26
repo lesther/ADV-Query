@@ -257,7 +257,7 @@
 }
 
 //spacing
-@mixin h-width-atr($size: "") {
+@mixin h-width-height-atr($size: "") {
 	//min-width
 	.h-min-width-sm#{$size} {
 		min-width: 200px;
@@ -271,6 +271,9 @@
 	.h-min-width-lg#{$size} {
 		min-width: 500px;
 	}
+	.h-min-width-xl#{$size} {
+		min-width: 700px;
+	}
 
 	//max-width
 	.h-max-width-sm#{$size} {
@@ -282,26 +285,65 @@
 	.h-max-width-lg#{$size} {
 		max-width: 500px;
 	}
+	.h-max-width-xl#{$size} {
+		max-width: 700px;
+	}
+
+	//min-height
+	.h-min-height-sm#{$size} {
+		min-height: 200px;
+	}
+	.h-min-height-sm-1#{$size} {
+		min-height: 250px;
+	}
+	.h-min-height-md#{$size} {
+		min-height: 400px;
+	}
+	.h-min-height-lg#{$size} {
+		min-height: 500px;
+	}
+	.h-min-height-xl#{$size} {
+		min-height: 700px;
+	}
+
+	//max-height
+	.h-max-height-sm#{$size} {
+		max-height: 200px;
+	}
+	.h-max-height-md#{$size} {
+		max-height: 400px;
+	}
+	.h-max-height-lg#{$size} {
+		max-height: 500px;
+	}
+	.h-max-height-xl#{$size} {
+		max-height: 700px;
+	}
 }
 
+
 // Generate
-@include h-width-atr();
+@include h-width-height-atr();
 @include sm {
-	@include h-width-atr("--sm");
+	@include h-width-height-atr("--sm");
 }
 @include md {
-	@include h-width-atr("--md");
+	@include h-width-height-atr("--md");
 }
 @include lg {
-	@include h-width-atr("--lg");
+	@include h-width-height-atr("--lg");
 }
 @include xl {
-	@include h-width-atr("--xl");
+	@include h-width-height-atr("--xl");
 }
 
 //width
 .h-width-100 {
 	width: 100%;
+}
+
+.h-overflow-auto {
+	overflow: auto;
 }
 
 //elliot
