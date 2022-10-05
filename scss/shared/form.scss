@@ -5,6 +5,7 @@
 	padding: 12px 20px;
 	border: 1px solid transparent;
 	background-color: rgba($color: $dark-color, $alpha: 0.05);
+	@include background(25px, calc(100% - 5px) 50%, no-repeat);
 	@include corner(5px);
 	@include transition(0.3s);
 	-webkit-appearance: none;
@@ -34,23 +35,24 @@
 .text_field--oval {
     @include corner(10rem);
 }
-.text_field-light {
-    color: $primary-color;
-}
 //sizes
-.text_field--sm {
+.text_field-sm {
+	@extend .text_field;
     padding: 5px 10px;
     @extend .text_sm;
 }
-.text_field--md {
+.text_field-md {
+	@extend .text_field;
     padding: 15px 10px;
     @extend .text_md;
 }
-.text_field--lg{
+.text_field-lg{
+	@extend .text_field;
     padding: 15px 25px;
     @extend .text_lg;
 }
-.text_field--xl{
+.text_field-xl{
+	@extend .text_field;
     padding: 15px 25px;
     @extend .text_xl;
 }
@@ -88,10 +90,60 @@
 	}
 }
 
+//search
+.text_field--search {
+	padding-right: 35px;
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iI2JkYmRiZCI+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xNS41IDE0aC0uNzlsLS4yOC0uMjdDMTUuNDEgMTIuNTkgMTYgMTEuMTEgMTYgOS41IDE2IDUuOTEgMTMuMDkgMyA5LjUgM1MzIDUuOTEgMyA5LjUgNS45MSAxNiA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg==');
+}
+.text_field--search {
+	&:active,
+	&:focus,
+	&:focus-visible {
+		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzU5YmIwMCI+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0xNS41IDE0aC0uNzlsLS4yOC0uMjdDMTUuNDEgMTIuNTkgMTYgMTEuMTEgMTYgOS41IDE2IDUuOTEgMTMuMDkgMyA5LjUgM1MzIDUuOTEgMyA5LjUgNS45MSAxNiA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg==');
+	}
+}
+
+//filter
+.text_field-filter {
+	position: relative;
+}
+@include only-mobile {
+	*:focus ~ .text_field-filter__content {
+		max-height: 600px;
+	}
+	.text_field-filter__content {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		top: 100%;
+		background-color: $light-color;
+		z-index: 99;
+		overflow: hidden;
+		max-height: 0;
+		@include transition(0.3s);
+	}
+	.text_field-filter__items {
+		padding: 20px;
+		@include corner(5px);
+		border: 1px solid rgba($color: $dark-color, $alpha: 0.1);
+	}
+}
+
 /////////////////////////////
 // color
 //format
 @each $colorClass, $value in $mixClass-palette {
+	.text_field--#{$colorClass} {
+		background-color: rgba($color: map-get($value, 'bg'), $alpha: 0.07);
+		color: map-get($value, 'bg');
+		color: map-get($value, 'input-color');
+		&:focus:not(.disabled){
+			background-color: $light-color;
+			border-color: map-get($value, 'bg');
+			@include shadow(0 0 0 0.25rem rgba($color: map-get($value, 'bg'), $alpha: 0.15));
+			color: map-get($value, 'color');
+		}
+	}
 	.text_field--outline-#{$colorClass} {
 		border-color: map-get($value, 'bg');
     	background-color: rgba($color: map-get($value, 'bg'), $alpha: 0.07);
@@ -100,18 +152,6 @@
         &:focus:not(.disabled){
             background-color: $light-color;
             @include shadow(0 0 0 0.25rem rgba($color: map-get($value, 'bg'), $alpha: 0.15))
-        }
-	}
-    .text_field-#{$colorClass} {
-        @extend .text_field;
-    	background-color: rgba($color: map-get($value, 'bg'), $alpha: 0.07);
-        color: map-get($value, 'bg');
-        color: map-get($value, 'input-color');
-        &:focus:not(.disabled){
-            background-color: $light-color;
-            border-color: map-get($value, 'bg');
-            @include shadow(0 0 0 0.25rem rgba($color: map-get($value, 'bg'), $alpha: 0.15));
-			color: map-get($value, 'color');
         }
 	}
 }

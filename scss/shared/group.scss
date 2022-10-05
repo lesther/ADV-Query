@@ -144,6 +144,20 @@
 	@include group-modifiers("--xl");
 }
 
+//grow
+.flex_grow-none {
+    flex-grow: initial;
+}
+.flex_grow-1 {
+    flex-grow: 1;
+}
+.flex_gro-2 {
+    flex-grow: 2;
+}
+.flex_grow-3 {
+    flex-grow: 3;
+}
+
 //elliot
 @mixin group-item($size: '') {
     .group__item#{$size} {

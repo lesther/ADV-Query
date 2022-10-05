@@ -59,3 +59,11 @@
     @include transform(rotate(-180deg));
     background-image: url('../images/chevron_bottom-success.svg')
 }
+
+//tab
+.tab__header {
+    overflow-x: auto;
+}
+.tab__content:not(.active) {
+    display: none;
+}

@@ -219,25 +219,32 @@
 
 	//vertical
 	.h-inner-spacing-vertical-none#{$size} {
-		padding: 0;
+		padding-top: 0;
+		padding-bottom: 0;
 	}
 	.h-inner-spacing-vertical-xs#{$size} {
-		padding: 5px;
+		padding-top: 5px;
+		padding-bottom: 5px;
 	}
 	.h-inner-spacing-vertical-sm#{$size} {
-		padding: 10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
 	.h-inner-spacing-vertical-md#{$size} {
-		padding: 15px;
+		padding-top: 15px;
+		padding-bottom: 15px;
 	}
 	.h-inner-spacing-vertical-lg#{$size} {
-		padding: 20px;
+		padding-top: 20px;
+		padding-bottom: 20px;
 	}
 	.h-inner-spacing-vertical-xl#{$size} {
-		padding: 30px;
+		padding-top: 30px;
+		padding-bottom: 30px;
 	}
 	.h-inner-spacing-vertical-xxl#{$size} {
-		padding: 40px;
+		padding-top: 40px;
+		padding-bottom: 40px;
 	}
 }
 
@@ -318,6 +325,9 @@
 	}
 	.h-max-height-xl#{$size} {
 		max-height: 700px;
+	}
+	.h-max-height-xxl#{$size} {
+		max-height: 1000px;
 	}
 }
 
